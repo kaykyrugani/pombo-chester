@@ -3,15 +3,15 @@ import SectionTitle from '../ui/SectionTitle.jsx'
 const values = [
   {
     title: 'Humor com presença',
-    text: 'A irreverência entra no palco com ritmo, timing e respeito ao público do evento.',
+    text: 'A irreverência entra no palco com timing, repertório e interação com o público.',
   },
   {
     title: 'Repertório brasileiro',
-    text: 'Referências populares, clássicos conhecidos e uma leitura divertida da cultura nacional.',
+    text: 'Clássicos populares e referências nacionais que aproximam a banda da plateia.',
   },
   {
-    title: 'Energia de show',
-    text: 'Performance para colocar o público junto, cantar alto e manter a festa acesa.',
+    title: 'Energia ao vivo',
+    text: 'Shows pensados para levantar festas, eventos, bares e casas de show.',
   },
 ]
 
@@ -22,7 +22,7 @@ function BandValues() {
         <SectionTitle
           eyebrow="Proposta"
           title="O que move a Pombo Chester"
-          subtitle="Humor, repertório popular e presença de palco trabalhando juntos para entregar um show memorável."
+          subtitle="Três pilares para entregar um show divertido, musical e pronto para evento."
         />
 
         <div className="band-values__grid">
