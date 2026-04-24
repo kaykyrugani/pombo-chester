@@ -1,23 +1,18 @@
-import { shows } from '../../data/shows.js'
-import ShowCard from '../../components/common/ShowCard.jsx'
-import SectionTitle from '../../components/ui/SectionTitle.jsx'
+import AgendaCTA from '../../components/sections/AgendaCTA.jsx'
+import AgendaPageHero from '../../components/sections/AgendaPageHero.jsx'
+import AgendaShows from '../../components/sections/AgendaShows.jsx'
+import BookingInfo from '../../components/sections/BookingInfo.jsx'
+import EventTypes from '../../components/sections/EventTypes.jsx'
 
 function Agenda() {
   return (
-    <section className="section section-light">
-      <div className="container">
-        <SectionTitle
-          eyebrow="Agenda"
-          title="Shows e Eventos"
-          subtitle="Estrutura inicial para datas, locais, cidades e links de ingresso confirmados."
-        />
-        <div className="grid grid-auto placeholder-box">
-          {shows.map((show) => (
-            <ShowCard key={show.id} show={show} />
-          ))}
-        </div>
-      </div>
-    </section>
+    <>
+      <AgendaPageHero />
+      <AgendaShows />
+      <EventTypes />
+      <BookingInfo />
+      <AgendaCTA />
+    </>
   )
 }
 

@@ -1608,6 +1608,233 @@ ul {
   justify-content: center;
 }
 
+.agenda-page-hero {
+  background:
+    linear-gradient(135deg, rgba(6, 56, 38, 0.94), rgba(11, 93, 59, 0.98)),
+    var(--color-primary-dark);
+  border-bottom: var(--border-strong);
+  color: var(--color-white);
+  overflow: hidden;
+  padding-block: var(--space-12) var(--space-10);
+  position: relative;
+}
+
+.agenda-page-hero::before {
+  background:
+    linear-gradient(90deg, rgba(244, 197, 66, 0.18) 1px, transparent 1px),
+    linear-gradient(rgba(244, 197, 66, 0.14) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+  content: '';
+  inset: 0;
+  opacity: 0.24;
+  position: absolute;
+}
+
+.agenda-page-hero__inner {
+  display: grid;
+  gap: var(--space-8);
+  position: relative;
+}
+
+.agenda-page-hero__content {
+  display: grid;
+  gap: var(--space-5);
+  max-width: 60rem;
+}
+
+.agenda-page-hero__badge,
+.agenda-cta__eyebrow {
+  background: var(--color-white);
+  border: var(--border-strong);
+  border-radius: var(--radius-pill);
+  color: var(--color-primary-dark);
+  display: inline-flex;
+  font-size: 0.82rem;
+  font-weight: 900;
+  justify-self: start;
+  line-height: 1;
+  padding: var(--space-2) var(--space-4);
+  text-transform: uppercase;
+}
+
+.agenda-page-hero h1,
+.agenda-page-hero p,
+.agenda-cta h2,
+.agenda-cta p {
+  color: var(--color-white);
+}
+
+.agenda-page-hero p,
+.agenda-cta p {
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  font-weight: 700;
+  max-width: 42rem;
+}
+
+.agenda-page-hero__actions,
+.agenda-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.agenda-page-hero__actions .button--outline,
+.agenda-cta__actions .button--outline {
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+.agenda-page-hero__marker {
+  align-self: center;
+  background: var(--color-accent);
+  border: var(--border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-black);
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+  padding: var(--space-6);
+  transform: rotate(2deg);
+}
+
+.agenda-page-hero__marker span,
+.agenda-page-hero__marker strong {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.agenda-page-hero__marker span {
+  font-size: clamp(2.75rem, 10vw, 5rem);
+}
+
+.agenda-page-hero__marker strong {
+  background: var(--color-white);
+  border: 2px solid var(--color-black);
+  border-radius: var(--radius-pill);
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+  padding: var(--space-2) var(--space-4);
+}
+
+.agenda-shows,
+.event-types,
+.booking-info {
+  border-bottom: var(--border-strong);
+}
+
+.agenda-shows__grid,
+.event-types__grid,
+.booking-info__grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: 1fr;
+  margin-top: var(--space-8);
+}
+
+.event-type-card,
+.booking-step-card {
+  background: var(--color-white);
+  border: var(--border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-black);
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-5);
+}
+
+.event-type-card > span {
+  background: var(--color-accent);
+  border: 2px solid var(--color-black);
+  border-radius: 50%;
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+.event-type-card h3,
+.booking-step-card h3 {
+  font-size: clamp(2rem, 7vw, 3rem);
+}
+
+.event-type-card p,
+.booking-step-card p {
+  font-weight: 700;
+}
+
+.booking-info {
+  overflow: hidden;
+  position: relative;
+}
+
+.booking-info::before {
+  background:
+    linear-gradient(90deg, rgba(244, 197, 66, 0.18) 1px, transparent 1px),
+    linear-gradient(rgba(244, 197, 66, 0.14) 1px, transparent 1px);
+  background-size: 1.75rem 1.75rem;
+  content: '';
+  inset: 0;
+  opacity: 0.25;
+  position: absolute;
+}
+
+.booking-info > .container {
+  position: relative;
+}
+
+.booking-step-card:first-child {
+  background: var(--color-accent);
+}
+
+.agenda-cta {
+  background:
+    linear-gradient(135deg, rgba(6, 56, 38, 0.96), rgba(11, 93, 59, 0.9)),
+    var(--color-primary-dark);
+  color: var(--color-white);
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.agenda-cta::before,
+.agenda-cta::after {
+  background: var(--color-accent);
+  border: var(--border-strong);
+  content: '';
+  height: 2.25rem;
+  position: absolute;
+  transform: rotate(7deg);
+  width: 11rem;
+}
+
+.agenda-cta::before {
+  left: -4rem;
+  top: 2rem;
+}
+
+.agenda-cta::after {
+  bottom: 2rem;
+  right: -4rem;
+}
+
+.agenda-cta__inner {
+  align-items: center;
+  display: grid;
+  gap: var(--space-5);
+  justify-items: center;
+  max-width: 54rem;
+  position: relative;
+}
+
+.agenda-cta__eyebrow {
+  justify-self: center;
+}
+
+.agenda-cta__actions {
+  justify-content: center;
+}
+
 .social-links {
   display: flex;
   flex-wrap: wrap;
@@ -1696,6 +1923,15 @@ ul {
     grid-template-columns: 1.1fr 0.75fr;
   }
 
+  .agenda-page-hero {
+    padding-block: var(--space-16) var(--space-12);
+  }
+
+  .agenda-page-hero__inner {
+    align-items: center;
+    grid-template-columns: 1.1fr 0.75fr;
+  }
+
   .band-intro__inner {
     align-items: center;
     grid-template-columns: 1.35fr 0.65fr;
@@ -1713,6 +1949,15 @@ ul {
   .venues-showcase__grid,
   .road-highlights__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .agenda-shows__grid,
+  .booking-info__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .event-types__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .expanding-venues {
@@ -1782,6 +2027,12 @@ ul {
 
   .venues-showcase__grid,
   .road-highlights__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .agenda-shows__grid,
+  .event-types__grid,
+  .booking-info__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
