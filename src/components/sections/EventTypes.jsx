@@ -1,25 +1,16 @@
-import SectionTitle from '../ui/SectionTitle.jsx'
+import { useState } from 'react'
 
-const eventTypes = [
-  {
-    title: 'Festas particulares',
-    text: 'Aniversários, confraternizações e celebrações com repertório leve e participação do público.',
-  },
-  {
-    title: 'Casas de show',
-    text: 'Formato ideal para palcos que pedem presença, energia e repertório brasileiro conhecido.',
-  },
-  {
-    title: 'Eventos corporativos',
-    text: 'Shows descontraídos para empresas que querem sair do óbvio e criar uma experiência memorável.',
-  },
-  {
-    title: 'Festivais e bares',
-    text: 'Apresentações com ritmo, humor e clássicos nacionais para manter o público junto.',
-  },
-]
+import EventTypeCard from '../common/EventTypeCard.jsx'
+import SectionTitle from '../ui/SectionTitle.jsx'
+import eventTypes from '../../data/eventTypes.js'
 
 function EventTypes() {
+  const [openCardId, setOpenCardId] = useState(null)
+
+  const handleToggle = (id) => {
+    setOpenCardId((currentId) => (currentId === id ? null : id))
+  }
+
   return (
     <section className="event-types section section-muted" aria-label="Tipos de eventos">
       <div className="container">
@@ -29,13 +20,14 @@ function EventTypes() {
           subtitle="A Pombo Chester se adapta a diferentes palcos, públicos e formatos de apresentação."
         />
 
-        <div className="event-types__grid">
+        <div className="event-types__grid event-types-grid">
           {eventTypes.map((eventType) => (
-            <article className="event-type-card" key={eventType.title}>
-              <span aria-hidden="true" />
-              <h3>{eventType.title}</h3>
-              <p>{eventType.text}</p>
-            </article>
+            <EventTypeCard
+              event={eventType}
+              isOpen={openCardId === eventType.id}
+              key={eventType.id}
+              onToggle={() => handleToggle(eventType.id)}
+            />
           ))}
         </div>
       </div>
