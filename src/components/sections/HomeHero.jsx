@@ -1,8 +1,8 @@
 import Button from '../ui/Button.jsx'
-import membro1 from '../../assets/images/band/membro1.jpeg'
-import membro2 from '../../assets/images/band/membro2.jpeg'
-import membro3 from '../../assets/images/band/membro3.jpeg'
-import membro4 from '../../assets/images/band/membro4.jpeg'
+import membro1 from '../../assets/images/band/membro1.png'
+import membro2 from '../../assets/images/band/membro2.png'
+import membro3 from '../../assets/images/band/membro3.png'
+import membro4 from '../../assets/images/band/membro4.png'
 
 const members = [
   { name: 'Integrante da Pombo Chester', image: membro1 },

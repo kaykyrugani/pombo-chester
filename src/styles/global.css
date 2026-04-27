@@ -74,6 +74,32 @@ ul {
   color: var(--color-black);
 }
 
+.brand-pigeon {
+  bottom: 0;
+  display: none;
+  filter: saturate(1.4) contrast(1.1);
+  max-width: none;
+  opacity: 0.05;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  transition: transform 200ms ease-out;
+  user-select: none;
+  width: clamp(20rem, 32vw, 31.25rem);
+  z-index: 0;
+}
+
+.brand-pigeon-content {
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 769px) {
+  .brand-pigeon {
+    display: block;
+  }
+}
+
 .section-dark {
   background: var(--color-primary-dark);
   color: var(--color-white);
@@ -735,6 +761,8 @@ ul {
 
 .instagram-section {
   border-bottom: var(--border-strong);
+  overflow: visible;
+  position: relative;
 }
 
 .instagram-section__header {
@@ -1421,6 +1449,8 @@ ul {
 }
 
 .road-intro {
+  overflow: visible;
+  padding-block: var(--space-16);
   position: relative;
 }
 
@@ -2108,6 +2138,244 @@ ul {
   padding: var(--space-3);
 }
 
+.contact-media-hero {
+  background:
+    linear-gradient(135deg, rgba(6, 56, 38, 0.94), rgba(11, 93, 59, 0.98)),
+    var(--color-primary-dark);
+  border-bottom: var(--border-strong);
+  color: var(--color-white);
+  overflow: hidden;
+  padding-block: var(--space-12) var(--space-10);
+  position: relative;
+}
+
+.contact-media-hero::before {
+  background:
+    linear-gradient(90deg, rgba(244, 197, 66, 0.18) 1px, transparent 1px),
+    linear-gradient(rgba(244, 197, 66, 0.14) 1px, transparent 1px);
+  background-size: 2rem 2rem;
+  content: '';
+  inset: 0;
+  opacity: 0.24;
+  position: absolute;
+}
+
+.contact-media-hero__inner {
+  position: relative;
+}
+
+.contact-media-hero__content {
+  display: grid;
+  gap: var(--space-5);
+  max-width: 58rem;
+}
+
+.contact-media-hero__badge,
+.contact-media-cta__eyebrow {
+  background: var(--color-white);
+  border: var(--border-strong);
+  border-radius: var(--radius-pill);
+  color: var(--color-primary-dark);
+  display: inline-flex;
+  font-size: 0.82rem;
+  font-weight: 900;
+  justify-self: start;
+  line-height: 1;
+  padding: var(--space-2) var(--space-4);
+  text-transform: uppercase;
+}
+
+.contact-media-hero h1,
+.contact-media-hero p,
+.contact-media-cta h2,
+.contact-media-cta p {
+  color: var(--color-white);
+}
+
+.contact-media-hero p,
+.contact-media-cta p {
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  font-weight: 700;
+  max-width: 42rem;
+}
+
+.contact-media-hero__actions,
+.contact-media-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.contact-media-hero__actions .button--outline,
+.contact-media-cta__actions .button--outline {
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+.social-contact {
+  border-bottom: var(--border-strong);
+  overflow: visible;
+  position: relative;
+}
+
+.social-contact__header {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 48rem;
+}
+
+.social-contact__header p {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.social-contact__grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: 1fr;
+  margin-top: var(--space-8);
+}
+
+.social-contact-card {
+  background: var(--color-white);
+  border: var(--border-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-black);
+  display: grid;
+  gap: var(--space-5);
+  min-width: 0;
+  padding: var(--space-5);
+}
+
+.social-contact-card--featured {
+  background:
+    linear-gradient(180deg, rgba(244, 197, 66, 0.34), transparent 58%),
+    var(--color-white);
+}
+
+.social-contact-card__content {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.social-contact-card__content span {
+  color: var(--color-primary);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.social-contact-card h3 {
+  color: var(--color-primary-dark);
+  font-size: clamp(1.9rem, 7vw, 3rem);
+  overflow-wrap: anywhere;
+}
+
+.social-contact-card p {
+  font-weight: 700;
+}
+
+.social-contact-card__link,
+.contact-instagram-card__link {
+  background: var(--color-primary-dark);
+  border: 2px solid var(--color-black);
+  border-radius: var(--radius-pill);
+  box-shadow: 3px 3px 0 var(--color-black);
+  color: var(--color-white);
+  display: inline-flex;
+  font-size: 0.9rem;
+  font-weight: 900;
+  justify-content: center;
+  line-height: 1;
+  padding: var(--space-3) var(--space-4);
+  text-transform: uppercase;
+  transition:
+    background var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.social-contact-card__link {
+  align-self: end;
+  justify-self: start;
+}
+
+.social-contact-card--featured .social-contact-card__link {
+  background: var(--color-accent);
+  color: var(--color-black);
+}
+
+.social-contact-card__link:hover,
+.social-contact-card__link:focus-visible,
+.contact-instagram-card__link:hover,
+.contact-instagram-card__link:focus-visible {
+  box-shadow: 1px 1px 0 var(--color-black);
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  transform: translate(2px, 2px);
+}
+
+.contact-instagram {
+  border-bottom: var(--border-strong);
+}
+
+.contact-instagram-card {
+  min-width: 0;
+}
+
+.contact-instagram-card__link {
+  justify-self: start;
+}
+
+.contact-media-cta {
+  background:
+    linear-gradient(135deg, rgba(6, 56, 38, 0.96), rgba(11, 93, 59, 0.9)),
+    var(--color-primary-dark);
+  color: var(--color-white);
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.contact-media-cta::before,
+.contact-media-cta::after {
+  background: var(--color-accent);
+  border: var(--border-strong);
+  content: '';
+  height: 2.25rem;
+  position: absolute;
+  transform: rotate(-7deg);
+  width: 11rem;
+}
+
+.contact-media-cta::before {
+  left: -4rem;
+  top: 2rem;
+}
+
+.contact-media-cta::after {
+  bottom: 2rem;
+  right: -4rem;
+}
+
+.contact-media-cta__inner {
+  align-items: center;
+  display: grid;
+  gap: var(--space-5);
+  justify-items: center;
+  max-width: 54rem;
+  position: relative;
+}
+
+.contact-media-cta__eyebrow {
+  justify-self: center;
+}
+
+.contact-media-cta__actions {
+  justify-content: center;
+}
+
 @media (min-width: 760px) {
   .container {
     width: min(100% - 3rem, var(--container-max));
@@ -2123,6 +2391,10 @@ ul {
   }
 
   .home-hero {
+    padding-block: var(--space-16) var(--space-12);
+  }
+
+  .contact-media-hero {
     padding-block: var(--space-16) var(--space-12);
   }
 
@@ -2197,6 +2469,10 @@ ul {
   .agenda-shows__grid,
   .booking-info__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .social-contact__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .event-types__grid,
@@ -2298,6 +2574,10 @@ ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .social-contact__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .expanding-venues {
     flex-direction: row;
     min-height: 28rem;
@@ -2326,6 +2606,13 @@ ul {
 }
 
 @media (max-width: 420px) {
+  .contact-media-hero__actions .button,
+  .contact-media-cta__actions .button,
+  .social-contact-card__link,
+  .contact-instagram-card__link {
+    width: 100%;
+  }
+
   .band-members__stack {
     min-height: 34rem;
   }

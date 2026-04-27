@@ -1,0 +1,50 @@
+import socialLinks from '../../data/socialLinks.js'
+import { BrandPigeon } from '../ui/brand-pigeon.tsx'
+
+function isExternalUrl(url) {
+  return url.startsWith('http')
+}
+
+function SocialContactLinks() {
+  return (
+    <section className="social-contact section section-light" aria-labelledby="social-contact-title">
+      <div className="container brand-pigeon-content">
+        <div className="social-contact__header">
+          <span className="eyebrow">Canais oficiais</span>
+          <h2 id="social-contact-title">Contato direto</h2>
+          <p>
+            Escolha o canal mais prático para acompanhar novidades, conversar com
+            a banda ou consultar disponibilidade.
+          </p>
+        </div>
+
+        <div className="social-contact__grid">
+          {socialLinks.map((link) => (
+            <article
+              className={`social-contact-card ${link.featured ? 'social-contact-card--featured' : ''}`.trim()}
+              key={link.id}
+            >
+              <div className="social-contact-card__content">
+                <span>{link.label}</span>
+                <h3>{link.handle}</h3>
+                <p>{link.description}</p>
+              </div>
+              <a
+                className="social-contact-card__link"
+                href={link.url}
+                target={isExternalUrl(link.url) ? '_blank' : undefined}
+                rel={isExternalUrl(link.url) ? 'noreferrer' : undefined}
+                aria-label={`Acessar ${link.label}`}
+              >
+                Acessar
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+      <BrandPigeon />
+    </section>
+  )
+}
+
+export default SocialContactLinks

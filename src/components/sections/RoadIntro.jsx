@@ -1,7 +1,9 @@
+import { BrandPigeon } from '../ui/brand-pigeon.tsx'
+
 function RoadIntro() {
   return (
     <section className="road-intro section section-light" aria-label="Trajetória ao vivo">
-      <div className="container road-intro__inner">
+      <div className="container road-intro__inner brand-pigeon-content">
         <div className="road-intro__copy">
           <span className="eyebrow">Trajetória</span>
           <h2>Cada palco conta uma história</h2>
@@ -20,6 +22,7 @@ function RoadIntro() {
           <span>Prova social para quem quer contratar um show com energia real.</span>
         </aside>
       </div>
+      <BrandPigeon />
     </section>
   )
 }

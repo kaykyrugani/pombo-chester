@@ -1,4 +1,5 @@
 import Button from '../ui/Button.jsx'
+import { BrandPigeon } from '../ui/brand-pigeon.tsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
 
 const instagramPosts = [
@@ -22,7 +23,7 @@ const instagramPosts = [
 function InstagramFeed() {
   return (
     <section className="instagram-section section section-muted" aria-label="Assista ao vivo">
-      <div className="container">
+      <div className="container brand-pigeon-content">
         <div className="instagram-section__header">
           <SectionTitle
             eyebrow="Instagram"
@@ -46,6 +47,7 @@ function InstagramFeed() {
           ))}
         </div>
       </div>
+      <BrandPigeon />
     </section>
   )
 }
