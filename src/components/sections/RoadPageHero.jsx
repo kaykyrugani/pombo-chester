@@ -22,9 +22,9 @@ function RoadPageHero() {
         </div>
 
         <div className="road-page-hero__stamp" aria-hidden="true">
-          <span>Palco</span>
-          <strong>Estrada</strong>
-          <span>Festa</span>
+          <span>Ao vivo</span>
+          <strong>Na Estrada</strong>
+          <span>Show real</span>
         </div>
       </div>
     </section>
