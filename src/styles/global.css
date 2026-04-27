@@ -1232,33 +1232,6 @@ ul {
   margin-top: var(--space-8);
 }
 
-.band-value-card {
-  background: var(--color-white);
-  border: var(--border-strong);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  color: var(--color-black);
-  display: grid;
-  gap: var(--space-3);
-  padding: var(--space-5);
-}
-
-.band-value-card > span {
-  background: var(--color-accent);
-  border: 2px solid var(--color-black);
-  border-radius: 50%;
-  height: 1.2rem;
-  width: 1.2rem;
-}
-
-.band-value-card h3 {
-  font-size: clamp(2rem, 7vw, 3rem);
-}
-
-.band-value-card p {
-  font-weight: 700;
-}
-
 .band-members {
   border-bottom: var(--border-strong);
   overflow: hidden;
@@ -1780,13 +1753,11 @@ ul {
   text-transform: uppercase;
 }
 
-.venue-card h3,
-.road-highlight-card h3 {
+.venue-card h3 {
   font-size: clamp(2rem, 7vw, 3rem);
 }
 
-.venue-card p,
-.road-highlight-card p {
+.venue-card p {
   font-weight: 700;
 }
 
@@ -1816,7 +1787,7 @@ ul {
   position: relative;
 }
 
-.road-highlights__panel {
+.dark-feature-panel {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1.5rem;
@@ -1824,7 +1795,13 @@ ul {
   padding: var(--space-4);
 }
 
-.road-highlight-card {
+.dark-feature-panel .band-values__grid,
+.dark-feature-panel .booking-info__grid,
+.dark-feature-panel .road-highlights__grid {
+  margin-top: 0;
+}
+
+.dark-feature-card {
   background:
     linear-gradient(90deg, var(--color-accent) 0 0.45rem, transparent 0.45rem),
     linear-gradient(180deg, rgba(244, 197, 66, 0.12), transparent 45%),
@@ -1841,7 +1818,14 @@ ul {
   transition: box-shadow var(--transition-fast), transform var(--transition-fast);
 }
 
-.road-highlight-card::after {
+.dark-feature-card--accent {
+  background:
+    linear-gradient(90deg, var(--color-primary) 0 0.45rem, transparent 0.45rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 52%),
+    var(--color-accent);
+}
+
+.dark-feature-card::after {
   background: var(--color-primary);
   border-left: 2px solid var(--color-black);
   bottom: 0;
@@ -1852,7 +1836,11 @@ ul {
   width: 0.45rem;
 }
 
-.road-highlight-card__meta {
+.dark-feature-card--accent::after {
+  background: var(--color-primary-dark);
+}
+
+.dark-feature-card__meta {
   align-items: center;
   color: var(--color-primary-dark);
   display: flex;
@@ -1863,7 +1851,7 @@ ul {
   text-transform: uppercase;
 }
 
-.road-highlight-card__meta span:first-child {
+.dark-feature-card__dot {
   background: var(--color-accent);
   border: 2px solid var(--color-black);
   border-radius: 50%;
@@ -1872,13 +1860,19 @@ ul {
   width: 1.2rem;
 }
 
-.road-highlight-card h3 {
+.dark-feature-card--accent .dark-feature-card__dot {
+  background: var(--color-white);
+}
+
+.dark-feature-card .dark-feature-card__title {
   border-bottom: 2px solid rgba(17, 17, 17, 0.18);
   color: var(--color-black);
+  font-size: clamp(2rem, 7vw, 3rem);
   padding-bottom: var(--space-3);
 }
 
-.road-highlight-card p {
+.dark-feature-card__text {
+  font-weight: 700;
   line-height: 1.55;
 }
 
@@ -2221,25 +2215,6 @@ ul {
   transform: translate(2px, 2px);
 }
 
-.booking-step-card {
-  background: var(--color-white);
-  border: var(--border-strong);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  color: var(--color-black);
-  display: grid;
-  gap: var(--space-3);
-  padding: var(--space-5);
-}
-
-.booking-step-card h3 {
-  font-size: clamp(2rem, 7vw, 3rem);
-}
-
-.booking-step-card p {
-  font-weight: 700;
-}
-
 .booking-info {
   overflow: hidden;
   position: relative;
@@ -2258,10 +2233,6 @@ ul {
 
 .booking-info > .container {
   position: relative;
-}
-
-.booking-step-card:first-child {
-  background: var(--color-accent);
 }
 
 .agenda-cta {
@@ -2686,7 +2657,7 @@ ul {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .road-highlights__panel {
+  .dark-feature-panel {
     padding: var(--space-6);
   }
 
@@ -2753,7 +2724,7 @@ ul {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .road-highlight-card:hover {
+  .dark-feature-card:hover {
     box-shadow: 8px 8px 0 var(--color-black);
     transform: translateY(-6px);
   }

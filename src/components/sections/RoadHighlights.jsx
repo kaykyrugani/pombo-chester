@@ -28,16 +28,16 @@ function RoadHighlights() {
           subtitle="Veja como nossos shows funcionam na prática — do clima à interação com o público."
         />
 
-        <div className="road-highlights__panel">
+        <div className="road-highlights__panel dark-feature-panel">
           <div className="road-highlights__grid">
             {highlights.map((highlight) => (
-              <article className="road-highlight-card" key={highlight.title}>
-                <div className="road-highlight-card__meta">
-                  <span aria-hidden="true" />
-                  <span>{highlight.label}</span>
+              <article className="dark-feature-card road-highlight-card" key={highlight.title}>
+                <div className="dark-feature-card__meta">
+                  <span className="dark-feature-card__dot" aria-hidden="true" />
+                  <span className="dark-feature-card__label">{highlight.label}</span>
                 </div>
-                <h3>{highlight.title}</h3>
-                <p>{highlight.text}</p>
+                <h3 className="dark-feature-card__title">{highlight.title}</h3>
+                <p className="dark-feature-card__text">{highlight.text}</p>
               </article>
             ))}
           </div>

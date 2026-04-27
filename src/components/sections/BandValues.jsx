@@ -2,15 +2,18 @@ import SectionTitle from '../ui/SectionTitle.jsx'
 
 const values = [
   {
+    label: 'PRESENÇA',
     title: 'Humor com presença',
     text: 'A irreverência entra no palco com timing, repertório e interação com o público.',
   },
   {
+    label: 'BRASILIDADE',
     title: 'Repertório brasileiro',
     text: 'Clássicos populares e referências nacionais que aproximam a banda da plateia.',
   },
   {
-    title: 'Energia ao vivo',
+    label: 'AO VIVO',
+    title: 'Energia de show',
     text: 'Shows pensados para levantar festas, eventos, bares e casas de show.',
   },
 ]
@@ -25,14 +28,19 @@ function BandValues() {
           subtitle="Três pilares para entregar um show divertido, musical e pronto para evento."
         />
 
-        <div className="band-values__grid">
-          {values.map((value) => (
-            <article className="band-value-card" key={value.title}>
-              <span aria-hidden="true" />
-              <h3>{value.title}</h3>
-              <p>{value.text}</p>
-            </article>
-          ))}
+        <div className="dark-feature-panel">
+          <div className="band-values__grid">
+            {values.map((value) => (
+              <article className="dark-feature-card band-value-card" key={value.title}>
+                <div className="dark-feature-card__meta">
+                  <span className="dark-feature-card__dot" aria-hidden="true" />
+                  <span className="dark-feature-card__label">{value.label}</span>
+                </div>
+                <h3 className="dark-feature-card__title">{value.title}</h3>
+                <p className="dark-feature-card__text">{value.text}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

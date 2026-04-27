@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import Button from '../ui/Button.jsx'
+import logoPombo from '../../assets/logo/LogoPombo.jpg'
 
 const navItems = [
   { label: 'Home', href: '/' },
