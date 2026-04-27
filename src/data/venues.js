@@ -1,11 +1,9 @@
-import bandImage from '../assets/images/hero/bandajpg.jpg'
-import venueFallback2 from '../assets/images/hero/membros2.jpeg'
-import venueFallback3 from '../assets/images/hero/membro1.jpeg'
-import venueFallback4 from '../assets/images/hero/membro3.jpeg'
-import venueFallback5 from '../assets/images/hero/membro4.jpeg'
+import casaShow from '../assets/images/events/CasaShow.JPEG'
+import bares from '../assets/images/events/Bares.png'
+import festaParticular from '../assets/images/events/FestaParticular.png'
+import festivais from '../assets/images/events/Festivais.jpeg'
+import noiteBR from '../assets/images/events/NoiteBR.JPEG'
 
-// Trocar pelos arquivos finais em src/assets/images/venues/venue1.jpeg a venue5.jpeg
-// quando os registros oficiais dos locais estiverem disponíveis.
 const venues = [
   {
     id: 1,
@@ -15,7 +13,7 @@ const venues = [
     state: 'SP',
     description:
       'Registro de apresentação da Pombo Chester em uma noite de música, humor e participação do público.',
-    image: bandImage,
+    image: casaShow,
   },
   {
     id: 2,
@@ -24,7 +22,7 @@ const venues = [
     city: 'Campinas',
     state: 'SP',
     description: 'Show com repertório brasileiro, energia ao vivo e clima de festa do começo ao fim.',
-    image: venueFallback2,
+    image: bares,
   },
   {
     id: 3,
@@ -33,7 +31,7 @@ const venues = [
     city: 'Santos',
     state: 'SP',
     description: 'Formato pensado para celebrações com humor, brasilidade e interação com os convidados.',
-    image: venueFallback3,
+    image: festaParticular,
   },
   {
     id: 4,
@@ -42,7 +40,7 @@ const venues = [
     city: 'São Bernardo',
     state: 'SP',
     description: 'Participação em evento com público diverso, repertório popular e presença de palco.',
-    image: venueFallback4,
+    image: festivais,
   },
   {
     id: 5,
@@ -51,7 +49,7 @@ const venues = [
     city: 'Guarulhos',
     state: 'SP',
     description: 'Uma apresentação voltada para clássicos nacionais, nostalgia e energia coletiva.',
-    image: venueFallback5,
+    image: noiteBR,
   },
 ]
 

@@ -813,7 +813,15 @@ ul {
   border-radius: var(--radius-sm);
   display: grid;
   min-height: 14rem;
+  overflow: hidden;
   place-items: center;
+}
+
+.instagram-card__image {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
 }
 
 .instagram-card__frame span {
