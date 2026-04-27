@@ -35,9 +35,7 @@ function Header({ currentPath = '/' }) {
     <header className="site-header">
       <div className="container site-header__inner">
         <a className="brand" href="/" aria-label="Pombo Chester - Home" onClick={() => setIsMenuOpen(false)}>
-          <span className="brand__mark" aria-hidden="true">
-            PC
-          </span>
+          <img src={logoPombo} alt="Pombo Chester Logo" className="brand__mark" />
           <span className="brand__name">Pombo Chester</span>
         </a>
 
