@@ -1,4 +1,5 @@
 import Button from '../ui/Button.jsx'
+import officialLinks from '../../data/officialLinks.js'
 
 function AgendaPageHero() {
   return (
@@ -12,10 +13,7 @@ function AgendaPageHero() {
             brasilidade e energia ao vivo.
           </p>
           <div className="agenda-page-hero__actions">
-            <Button href="#proximos-shows" variant="primary">
-              Ver próximos shows
-            </Button>
-            <Button href="#" variant="outline">
+            <Button href={officialLinks.whatsapp} variant="outline" target="_blank" rel="noreferrer">
               Contratar Show
             </Button>
           </div>

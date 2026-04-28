@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Button from '../ui/Button.jsx'
 import logoPombo from '../../assets/logo/LogoPombo.jpg'
+import officialLinks from '../../data/officialLinks.js'
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -52,7 +53,7 @@ function Header({ currentPath = '/' }) {
         </nav>
 
         <div className="site-header__cta">
-          <Button href="/contato" variant="primary">
+          <Button href={officialLinks.whatsapp} variant="primary" target="_blank" rel="noreferrer">
             Contratar Show
           </Button>
         </div>
@@ -88,7 +89,13 @@ function Header({ currentPath = '/' }) {
               {item.label}
             </a>
           ))}
-          <a className="mobile-menu__cta" href="/contato" onClick={() => setIsMenuOpen(false)}>
+          <a
+            className="mobile-menu__cta"
+            href={officialLinks.whatsapp}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => setIsMenuOpen(false)}
+          >
             Contratar Show
           </a>
         </div>

@@ -1,13 +1,7 @@
-// TODO: quando as imagens finais forem adicionadas em src/assets/images/events/,
-// trocar os imports temporarios abaixo pelos arquivos especificos:
-// import eventParticular from '../assets/images/events/event-particular.jpeg';
-// import eventCasaShow from '../assets/images/events/event-casa-show.jpeg';
-// import eventCorporativo from '../assets/images/events/event-corporativo.jpeg';
-// import eventFestival from '../assets/images/events/event-festival.jpeg';
-import eventParticular from '../assets/images/hero/membros2.jpeg'
-import eventCasaShow from '../assets/images/hero/bandajpg.jpg'
-import eventCorporativo from '../assets/images/band/membro2.jpeg'
-import eventFestival from '../assets/images/hero/membro3.jpeg'
+import festaParticular from '../assets/images/events/FestaParticular.png'
+import casaShow from '../assets/images/events/CasaShow.JPEG'
+import noiteBR from '../assets/images/events/NoiteBR.JPEG'
+import festivais from '../assets/images/events/Festivais.jpeg'
 
 const eventTypes = [
   {
@@ -17,7 +11,7 @@ const eventTypes = [
     shortText: 'Aniversários, confraternizações e encontros com clima leve.',
     description:
       'A Pombo Chester cria uma experiência participativa para festas particulares, combinando repertório brasileiro conhecido, humor e presença de palco para envolver convidados de diferentes idades.',
-    image: eventParticular,
+    image: festaParticular,
   },
   {
     id: 2,
@@ -26,16 +20,16 @@ const eventTypes = [
     shortText: 'Energia, repertório popular e interação com a plateia.',
     description:
       'Em casas de show, a banda entrega uma apresentação com ritmo, presença e repertório pensado para manter o público junto do começo ao fim.',
-    image: eventCasaShow,
+    image: casaShow,
   },
   {
     id: 3,
     title: 'Eventos corporativos',
     eyebrow: 'Empresas',
-    shortText: 'Uma opção descontraída para sair do óbvio.',
+    shortText: 'Uma opção descontraída para empresas que querem sair do óbvio.',
     description:
       'Para empresas, confraternizações e ativações, a Pombo Chester oferece um show leve, divertido e memorável, mantendo profissionalismo sem perder a irreverência.',
-    image: eventCorporativo,
+    image: noiteBR,
   },
   {
     id: 4,
@@ -44,7 +38,7 @@ const eventTypes = [
     shortText: 'Clássicos nacionais, humor e brasilidade no palco.',
     description:
       'Em festivais e bares, o repertório brasileiro e a energia ao vivo aproximam banda e público, criando uma apresentação vibrante e participativa.',
-    image: eventFestival,
+    image: festivais,
   },
 ]
 

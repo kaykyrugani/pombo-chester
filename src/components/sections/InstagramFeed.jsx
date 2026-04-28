@@ -1,22 +1,29 @@
 import Button from '../ui/Button.jsx'
 import { BrandPigeon } from '../ui/brand-pigeon.tsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
+import palcoAcesso from '../../assets/images/videos/PalcoAcesso.MOV'
+import antesDaEntrada from '../../assets/images/videos/AntesDaEntrada.MOV'
+import festaAcontecendo from '../../assets/images/videos/FestaAcontecendo.MOV'
+import officialLinks from '../../data/officialLinks.js'
 
-const instagramPosts = [
+const instagramVideos = [
   {
-    id: 'cortes-de-show',
+    id: 1,
     label: 'Cortes de show',
-    title: 'Palco aceso',
+    title: 'Palco Aceso',
+    video: palcoAcesso,
   },
   {
-    id: 'bastidores',
+    id: 2,
     label: 'Bastidores',
-    title: 'Antes da entrada',
+    title: 'Antes da Entrada',
+    video: antesDaEntrada,
   },
   {
-    id: 'eventos',
+    id: 3,
     label: 'Eventos',
-    title: 'A festa acontecendo',
+    title: 'A Festa Acontecendo',
+    video: festaAcontecendo,
   },
 ]
 
@@ -30,19 +37,31 @@ function InstagramFeed() {
             title="Assista ao vivo"
             subtitle="Bastidores, cortes de shows e momentos da banda para sentir a energia antes do convite."
           />
-          <Button href="https://www.instagram.com/pombochester/" variant="secondary">
+          <Button href={officialLinks.instagram} variant="secondary" target="_blank" rel="noreferrer">
             Ver no Instagram
           </Button>
         </div>
 
         <div className="instagram-grid">
-          {instagramPosts.map((post) => (
-            <article className="instagram-card" key={post.id}>
-              <span className="instagram-card__label">{post.label}</span>
-              <div className="instagram-card__frame" aria-hidden="true">
-                <span />
+          {instagramVideos.map((item) => (
+            <article className="instagram-card" key={item.id}>
+              <span className="instagram-card__label">{item.label}</span>
+              <div className="instagram-card__frame instagram-card__media" aria-hidden="true">
+                <video
+                  className="instagram-card__video"
+                  src={item.video}
+                  muted
+                  playsInline
+                  loop
+                  preload="metadata"
+                  onMouseEnter={(event) => event.currentTarget.play()}
+                  onMouseLeave={(event) => {
+                    event.currentTarget.pause()
+                    event.currentTarget.currentTime = 0
+                  }}
+                />
               </div>
-              <h3>{post.title}</h3>
+              <h3>{item.title}</h3>
             </article>
           ))}
         </div>

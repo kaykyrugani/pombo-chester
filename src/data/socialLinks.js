@@ -1,10 +1,12 @@
+import officialLinks from './officialLinks.js'
+
 const socialLinks = [
   {
     id: 1,
     label: 'Instagram',
     handle: '@pombochester',
     description: 'Bastidores, cortes de shows e agenda em tempo real.',
-    url: 'https://www.instagram.com/pombochester/',
+    url: officialLinks.instagram,
     featured: true,
   },
   {
@@ -12,7 +14,7 @@ const socialLinks = [
     label: 'WhatsApp',
     handle: 'Contratação de shows',
     description: 'Canal direto para consultar datas, formatos e orçamento.',
-    url: '#',
+    url: officialLinks.whatsapp,
     featured: true,
   },
   {
@@ -20,7 +22,7 @@ const socialLinks = [
     label: 'TikTok',
     handle: '@pombochester',
     description: 'Conteúdos curtos, momentos ao vivo e trechos dos shows.',
-    url: '#',
+    url: officialLinks.tiktok,
   },
   {
     id: 4,
@@ -34,7 +36,7 @@ const socialLinks = [
     label: 'Facebook',
     handle: 'Pombo Chester',
     description: 'Novidades, eventos e publicações oficiais da banda.',
-    url: '#',
+    url: officialLinks.facebook,
   },
 ]
 

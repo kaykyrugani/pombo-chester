@@ -1,6 +1,5 @@
 import Button from '../ui/Button.jsx'
-
-const instagramUrl = 'https://www.instagram.com/pombochester/'
+import officialLinks from '../../data/officialLinks.js'
 
 function ContactMediaHero() {
   return (
@@ -14,10 +13,10 @@ function ContactMediaHero() {
             a banda de perto.
           </p>
           <div className="contact-media-hero__actions">
-            <Button href="#" variant="primary">
+            <Button href={officialLinks.whatsapp} variant="primary" target="_blank" rel="noreferrer">
               Chamar no WhatsApp
             </Button>
-            <Button href={instagramUrl} variant="outline" target="_blank" rel="noreferrer">
+            <Button href={officialLinks.instagram} variant="outline" target="_blank" rel="noreferrer">
               Ver Instagram
             </Button>
           </div>

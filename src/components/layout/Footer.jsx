@@ -1,4 +1,5 @@
 import AnimatedFooterWord from '../common/AnimatedFooterWord.jsx'
+import officialLinks from '../../data/officialLinks.js'
 
 const footerLinks = [
   { label: 'Home', href: '/' },
@@ -9,11 +10,11 @@ const footerLinks = [
 ]
 
 const socialLinks = [
-  { label: 'Instagram', href: 'https://www.instagram.com/pombochester/' },
-  { label: 'TikTok', href: '#' },
-  { label: 'Spotify', href: '#' },
-  { label: 'YouTube', href: '#' },
-  { label: 'Facebook', href: '#' },
+  { label: 'Instagram', href: officialLinks.instagram },
+  { label: 'TikTok', href: officialLinks.tiktok },
+  { label: 'Spotify', href: officialLinks.spotify },
+  { label: 'YouTube', href: officialLinks.youtube },
+  { label: 'Facebook', href: officialLinks.facebook },
 ]
 
 function Footer() {
@@ -72,7 +73,9 @@ function Footer() {
               </li>
               <li>
                 <span>WhatsApp:</span>
-                <a href="#">Contratação de shows</a>
+                <a href={officialLinks.whatsapp} target="_blank" rel="noreferrer">
+                  Contratação de shows
+                </a>
               </li>
               <li>
                 <span>Localização:</span>

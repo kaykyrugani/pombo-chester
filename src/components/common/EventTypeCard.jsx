@@ -1,3 +1,5 @@
+import officialLinks from '../../data/officialLinks.js'
+
 function EventTypeCard({ event, isOpen, onToggle }) {
   const descriptionId = `event-type-description-${event.id}`
 
@@ -16,9 +18,10 @@ function EventTypeCard({ event, isOpen, onToggle }) {
       aria-expanded={isOpen}
       onClick={handleCardClick}
     >
-      <div className="event-type-card-image">
+      <div className="event-type-card-image" aria-hidden="true">
         <img src={event.image} alt="" decoding="async" loading="lazy" />
       </div>
+      <div className="event-type-card-overlay" aria-hidden="true" />
 
       <div className="event-type-card-content">
         <div className="event-type-card-header">
@@ -48,7 +51,12 @@ function EventTypeCard({ event, isOpen, onToggle }) {
 
         <div className="event-type-card-details" id={descriptionId}>
           <p className="event-type-card-description">{event.description}</p>
-          <a className="event-type-card-action" href="/contato">
+          <a
+            className="event-type-card-action"
+            href={officialLinks.whatsapp}
+            target="_blank"
+            rel="noreferrer"
+          >
             Consultar formato
           </a>
         </div>

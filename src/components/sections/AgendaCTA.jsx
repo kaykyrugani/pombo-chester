@@ -1,4 +1,5 @@
 import Button from '../ui/Button.jsx'
+import officialLinks from '../../data/officialLinks.js'
 
 function AgendaCTA() {
   return (
@@ -11,10 +12,10 @@ function AgendaCTA() {
           de música brasileira, humor e energia ao vivo.
         </p>
         <div className="agenda-cta__actions">
-          <Button href="#" variant="primary">
+          <Button href={officialLinks.whatsapp} variant="primary" target="_blank" rel="noreferrer">
             Contratar Show
           </Button>
-          <Button href="#" variant="outline">
+          <Button href={officialLinks.whatsapp} variant="outline" target="_blank" rel="noreferrer">
             Falar com a banda
           </Button>
         </div>

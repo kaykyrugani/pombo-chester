@@ -1,4 +1,5 @@
 import Button from '../ui/Button.jsx'
+import officialLinks from '../../data/officialLinks.js'
 
 function RoadPageHero() {
   return (
@@ -12,7 +13,7 @@ function RoadPageHero() {
             presença da banda ao vivo.
           </p>
           <div className="road-page-hero__actions">
-            <Button href="#" variant="primary">
+            <Button href={officialLinks.whatsapp} variant="primary" target="_blank" rel="noreferrer">
               Contratar Show
             </Button>
             <Button href="/agenda" variant="outline">

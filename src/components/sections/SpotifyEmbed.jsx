@@ -1,5 +1,6 @@
 import Button from '../ui/Button.jsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
+import officialLinks from '../../data/officialLinks.js'
 
 function SpotifyEmbed() {
   return (
@@ -11,7 +12,7 @@ function SpotifyEmbed() {
             title="Ouça a Pombo Chester"
             subtitle="Conheça o som da banda antes de levar essa energia para o seu evento."
           />
-          <Button href="#" variant="primary">
+          <Button href={officialLinks.spotify} variant="primary" target="_blank" rel="noreferrer">
             Abrir no Spotify
           </Button>
         </div>

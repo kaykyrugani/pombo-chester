@@ -3,8 +3,7 @@ import SectionTitle from '../ui/SectionTitle.jsx'
 import post1 from '../../assets/images/insta/PostInsta1.JPEG'
 import post2 from '../../assets/images/insta/PostInsta2.JPEG'
 import post3 from '../../assets/images/insta/PostInsta3.JPEG'
-
-const instagramUrl = 'https://www.instagram.com/pombochester/'
+import officialLinks from '../../data/officialLinks.js'
 
 const instagramPosts = [
   {
@@ -40,7 +39,7 @@ function ContactInstagramHighlights() {
             title="Veja a banda em ação"
             subtitle="Cortes de show, bastidores e momentos que mostram a energia da Pombo Chester no palco."
           />
-          <Button href={instagramUrl} variant="secondary" target="_blank" rel="noreferrer">
+          <Button href={officialLinks.instagram} variant="secondary" target="_blank" rel="noreferrer">
             Ver no Instagram
           </Button>
         </div>

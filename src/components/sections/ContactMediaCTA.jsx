@@ -1,4 +1,5 @@
 import Button from '../ui/Button.jsx'
+import officialLinks from '../../data/officialLinks.js'
 
 function ContactMediaCTA() {
   return (
@@ -11,7 +12,7 @@ function ContactMediaCTA() {
           festas, casas de show, bares e eventos.
         </p>
         <div className="contact-media-cta__actions">
-          <Button href="#" variant="primary">
+          <Button href={officialLinks.whatsapp} variant="primary" target="_blank" rel="noreferrer">
             Chamar no WhatsApp
           </Button>
           <Button href="/agenda" variant="outline">

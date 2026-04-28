@@ -948,7 +948,18 @@ ul {
   place-items: center;
 }
 
+.instagram-card__media {
+  position: relative;
+}
+
 .instagram-card__image {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.instagram-card__video {
   display: block;
   height: 100%;
   object-fit: cover;
@@ -2051,40 +2062,48 @@ ul {
 }
 
 .event-type-card {
-  background: var(--color-white);
+  background: var(--color-primary-dark);
   border: var(--border-strong);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  color: var(--color-black);
+  box-shadow: 6px 6px 0 var(--color-black);
+  color: var(--color-white);
   cursor: pointer;
   display: grid;
   gap: 0;
+  isolation: isolate;
+  min-height: 22.5rem;
   min-width: 0;
   overflow: hidden;
   padding: 0;
   position: relative;
   text-align: left;
   transition:
-    background var(--transition-base),
     border-color var(--transition-base),
     box-shadow var(--transition-base),
     transform var(--transition-base);
 }
 
+.event-type-card::after {
+  background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+  bottom: 0;
+  content: '';
+  height: 0.45rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+  z-index: 3;
+}
+
 .event-type-card.is-open {
-  background: #fff7d8;
   border-color: var(--color-primary);
-  box-shadow: 7px 7px 0 var(--color-black);
+  box-shadow: 8px 8px 0 var(--color-black);
   transform: translate(-2px, -2px);
 }
 
 .event-type-card-image {
-  aspect-ratio: 4 / 3;
-  background: var(--color-accent);
-  border-bottom: var(--border-strong);
-  height: 13.5rem;
-  overflow: hidden;
-  transition: height var(--transition-base);
+  inset: 0;
+  position: absolute;
+  z-index: 0;
 }
 
 .event-type-card-image img {
@@ -2094,11 +2113,41 @@ ul {
   width: 100%;
 }
 
+.event-type-card-overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.65) 55%,
+      rgba(0, 0, 0, 0.88) 100%
+    ),
+    rgba(6, 56, 38, 0.35);
+  inset: 0;
+  position: absolute;
+  transition: background-color var(--transition-base);
+  z-index: 1;
+}
+
+.event-type-card.is-open .event-type-card-overlay {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.38) 0%,
+      rgba(0, 0, 0, 0.72) 50%,
+      rgba(0, 0, 0, 0.94) 100%
+    ),
+    rgba(6, 56, 38, 0.45);
+}
+
 .event-type-card-content {
+  align-content: end;
   display: grid;
   gap: var(--space-3);
+  min-height: 22.5rem;
   padding: var(--space-5);
+  position: relative;
   transition: gap var(--transition-base);
+  z-index: 2;
 }
 
 .event-type-card.is-open .event-type-card-content {
@@ -2113,7 +2162,7 @@ ul {
 }
 
 .event-type-card-eyebrow {
-  color: var(--color-primary-dark);
+  color: var(--color-accent);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -2123,13 +2172,17 @@ ul {
 }
 
 .event-type-card-title {
-  font-size: clamp(2rem, 9vw, 3rem);
+  color: var(--color-white);
+  font-size: clamp(2.35rem, 10vw, 3.45rem);
+  line-height: 0.95;
 }
 
 .event-type-card-short,
 .event-type-card-description {
+  color: var(--color-white);
   font-weight: 700;
   line-height: 1.5;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
 
 .event-type-card-description {
@@ -2161,8 +2214,8 @@ ul {
 
 .event-type-card-toggle:hover,
 .event-type-card-toggle:focus-visible {
-  background: var(--color-primary);
-  color: var(--color-white);
+  background: var(--color-white);
+  color: var(--color-black);
   outline: 3px solid var(--color-accent);
   outline-offset: 3px;
   transform: rotate(8deg);
@@ -2190,11 +2243,11 @@ ul {
 
 .event-type-card-action {
   align-self: start;
-  background: var(--color-primary);
+  background: var(--color-accent);
   border: 2px solid var(--color-black);
   border-radius: var(--radius-pill);
   box-shadow: 3px 3px 0 var(--color-black);
-  color: var(--color-white);
+  color: var(--color-black);
   display: inline-flex;
   font-size: 0.9rem;
   font-weight: 800;

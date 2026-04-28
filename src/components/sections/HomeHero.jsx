@@ -3,6 +3,7 @@ import membro1 from '../../assets/images/band/membro1.png'
 import membro2 from '../../assets/images/band/membro2.png'
 import membro3 from '../../assets/images/band/membro3.png'
 import membro4 from '../../assets/images/band/membro4.png'
+import officialLinks from '../../data/officialLinks.js'
 
 const members = [
   { name: 'Integrante da Pombo Chester', image: membro1 },
@@ -23,7 +24,7 @@ function HomeHero() {
             ao vivo para casas de show, festas e eventos que precisam de palco aceso.
           </p>
           <div className="home-hero__actions">
-            <Button href="/contato" variant="primary">
+            <Button href={officialLinks.whatsapp} variant="primary" target="_blank" rel="noreferrer">
               Contratar Show
             </Button>
             <Button href="/agenda" variant="outline">
