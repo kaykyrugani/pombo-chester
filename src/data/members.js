@@ -1,7 +1,7 @@
-import vocalista from '../assets/images/band/Vocalista.JPEG'
-import guitarrista from '../assets/images/band/Guitarrista.JPEG'
-import baixista from '../assets/images/band/Baixista.JPEG'
-import baterista from '../assets/images/band/Baterista.JPEG'
+import vocalista from '../assets/images/band/Vocalista.webp'
+import guitarrista from '../assets/images/band/Guitarrista.webp'
+import baixista from '../assets/images/band/Baixista.webp'
+import baterista from '../assets/images/band/Baterista.webp'
 
 const members = [
   {

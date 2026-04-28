@@ -1,8 +1,8 @@
 import Button from '../ui/Button.jsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
-import post1 from '../../assets/images/insta/PostInsta1.JPEG'
-import post2 from '../../assets/images/insta/PostInsta2.JPEG'
-import post3 from '../../assets/images/insta/PostInsta3.JPEG'
+import post1 from '../../assets/images/insta/PostInsta1.webp'
+import post2 from '../../assets/images/insta/PostInsta2.webp'
+import post3 from '../../assets/images/insta/PostInsta3.webp'
 import officialLinks from '../../data/officialLinks.js'
 
 const instagramPosts = [

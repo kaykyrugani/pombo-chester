@@ -1,7 +1,7 @@
 "use client"
 
 import { memo, useEffect, useRef } from 'react'
-import pigeon from '../../assets/logo/LogoPombo2.png'
+import pigeon from '../../assets/logo/LogoPombo2.webp'
 
 type BrandPigeonProps = {
   className?: string

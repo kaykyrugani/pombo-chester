@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import Button from '../ui/Button.jsx'
-import logoPombo from '../../assets/logo/LogoPombo.jpg'
+import logoPombo from '../../assets/logo/LogoPombo.webp'
 import officialLinks from '../../data/officialLinks.js'
 
 const mobileMenuId = 'mobile-navigation'

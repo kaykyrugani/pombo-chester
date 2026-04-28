@@ -1,8 +1,8 @@
-import casaShow from '../assets/images/events/CasaShow.JPEG'
-import bares from '../assets/images/events/Bares.png'
-import festaParticular from '../assets/images/events/FestaParticular.png'
-import festivais from '../assets/images/events/Festivais.jpeg'
-import noiteBR from '../assets/images/events/NoiteBR.JPEG'
+import casaShow from '../assets/images/events/CasaShow.webp'
+import bares from '../assets/images/events/Bares.webp'
+import festaParticular from '../assets/images/events/FestaParticular.webp'
+import festivais from '../assets/images/events/Festivais.webp'
+import noiteBR from '../assets/images/events/NoiteBR.webp'
 
 const venues = [
   {

@@ -1,7 +1,7 @@
-import festaParticular from '../assets/images/events/FestaParticular.png'
-import casaShow from '../assets/images/events/CasaShow.JPEG'
-import noiteBR from '../assets/images/events/NoiteBR.JPEG'
-import festivais from '../assets/images/events/Festivais.jpeg'
+import festaParticular from '../assets/images/events/FestaParticular.webp'
+import casaShow from '../assets/images/events/CasaShow.webp'
+import noiteBR from '../assets/images/events/NoiteBR.webp'
+import festivais from '../assets/images/events/Festivais.webp'
 
 const eventTypes = [
   {

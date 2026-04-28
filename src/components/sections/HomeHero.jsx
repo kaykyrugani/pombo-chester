@@ -1,8 +1,8 @@
 import Button from '../ui/Button.jsx'
-import membro1 from '../../assets/images/band/membro1.png'
-import membro2 from '../../assets/images/band/membro2.png'
-import membro3 from '../../assets/images/band/membro3.png'
-import membro4 from '../../assets/images/band/membro4.png'
+import membro1 from '../../assets/images/band/membro1.webp'
+import membro2 from '../../assets/images/band/membro2.webp'
+import membro3 from '../../assets/images/band/membro3.webp'
+import membro4 from '../../assets/images/band/membro4.webp'
 import officialLinks from '../../data/officialLinks.js'
 
 const members = [
