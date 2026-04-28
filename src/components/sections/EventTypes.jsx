@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import EventTypeCard from '../common/EventTypeCard.jsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
@@ -7,9 +7,9 @@ import eventTypes from '../../data/eventTypes.js'
 function EventTypes() {
   const [openCardId, setOpenCardId] = useState(null)
 
-  const handleToggle = (id) => {
+  const handleToggle = useCallback((id) => {
     setOpenCardId((currentId) => (currentId === id ? null : id))
-  }
+  }, [])
 
   return (
     <section className="event-types section section-muted" aria-label="Tipos de eventos">
@@ -26,7 +26,7 @@ function EventTypes() {
               event={eventType}
               isOpen={openCardId === eventType.id}
               key={eventType.id}
-              onToggle={() => handleToggle(eventType.id)}
+              onToggle={handleToggle}
             />
           ))}
         </div>

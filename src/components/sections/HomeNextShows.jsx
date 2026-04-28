@@ -3,9 +3,9 @@ import ShowCard from '../common/ShowCard.jsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
 import Button from '../ui/Button.jsx'
 
-function HomeNextShows() {
-  const nextShows = shows.slice(0, 3)
+const nextShows = shows.slice(0, 3)
 
+function HomeNextShows() {
   return (
     <section className="home-next-shows section section-light" aria-label="Próximos Shows">
       <div className="container">

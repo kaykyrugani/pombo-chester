@@ -1,6 +1,7 @@
+import { memo } from 'react'
 import Button from '../ui/Button.jsx'
 
-function ShowCard({ show }) {
+const ShowCard = memo(function ShowCard({ show }) {
   return (
     <article className={`show-card ${show.isFeatured ? 'show-card--featured' : ''}`}>
       <div className="show-card__top">
@@ -22,6 +23,6 @@ function ShowCard({ show }) {
       </Button>
     </article>
   )
-}
+})
 
 export default ShowCard

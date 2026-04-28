@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import members from '../../data/members.js'
 import MemberCard from '../common/MemberCard.jsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
+
+const stackOrder = ['front', 'second', 'third', 'back']
 
 const stackPositions = {
   front: {
@@ -41,14 +43,14 @@ const stackPositions = {
 function BandMembers() {
   const [orderedMembers, setOrderedMembers] = useState(members)
 
-  const handleShuffle = () => {
+  const handleShuffle = useCallback(() => {
     setOrderedMembers((currentMembers) => {
       const nextMembers = [...currentMembers]
       const firstMember = nextMembers.shift()
       nextMembers.push(firstMember)
       return nextMembers
     })
-  }
+  }, [])
 
   return (
     <section className="band-members section section-muted" aria-label="Integrantes">
@@ -79,7 +81,7 @@ function BandMembers() {
               key={member.id}
               member={member}
               onShuffle={handleShuffle}
-              positionStyle={stackPositions[['front', 'second', 'third', 'back'][index]]}
+              positionStyle={stackPositions[stackOrder[index]]}
             />
           ))}
         </div>

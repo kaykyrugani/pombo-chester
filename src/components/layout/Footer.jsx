@@ -17,6 +17,10 @@ const socialLinks = [
   { label: 'Facebook', href: officialLinks.facebook },
 ]
 
+function isExternalUrl(url) {
+  return url.startsWith('http')
+}
+
 function Footer() {
   return (
     <footer className="site-footer">
@@ -48,17 +52,21 @@ function Footer() {
               Redes
             </h2>
             <ul className="site-footer__links">
-              {socialLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    target={link.href.startsWith('http') ? '_blank' : undefined}
-                    rel={link.href.startsWith('http') ? 'noreferrer' : undefined}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              {socialLinks.map((link) => {
+                const isExternal = isExternalUrl(link.href)
+
+                return (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      target={isExternal ? '_blank' : undefined}
+                      rel={isExternal ? 'noreferrer' : undefined}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                )
+              })}
             </ul>
           </section>
 

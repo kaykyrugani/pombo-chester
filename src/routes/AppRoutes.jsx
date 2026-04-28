@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import Layout from '../components/layout/Layout.jsx'
-import Agenda from '../pages/Agenda/Agenda.jsx'
-import Banda from '../pages/Banda/Banda.jsx'
-import ContatoMidia from '../pages/ContatoMidia/ContatoMidia.jsx'
-import Home from '../pages/Home/Home.jsx'
-import NaEstrada from '../pages/NaEstrada/NaEstrada.jsx'
+
+const Agenda = lazy(() => import('../pages/Agenda/Agenda.jsx'))
+const Banda = lazy(() => import('../pages/Banda/Banda.jsx'))
+const ContatoMidia = lazy(() => import('../pages/ContatoMidia/ContatoMidia.jsx'))
+const Home = lazy(() => import('../pages/Home/Home.jsx'))
+const NaEstrada = lazy(() => import('../pages/NaEstrada/NaEstrada.jsx'))
 
 const routes = {
   '/': Home,
@@ -45,6 +46,12 @@ function AppRoutes() {
       }
 
       event.preventDefault()
+
+      if (nextPath === normalizePath(window.location.pathname)) {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        return
+      }
+
       window.history.pushState({}, '', nextPath)
       setCurrentPath(nextPath)
       window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -59,11 +66,13 @@ function AppRoutes() {
     }
   }, [])
 
-  const Page = useMemo(() => routes[currentPath] || Home, [currentPath])
+  const Page = routes[currentPath] || Home
 
   return (
     <Layout currentPath={routes[currentPath] ? currentPath : '/'}>
-      <Page />
+      <Suspense fallback={null}>
+        <Page />
+      </Suspense>
     </Layout>
   )
 }

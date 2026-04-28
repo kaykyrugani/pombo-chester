@@ -19,27 +19,31 @@ function SocialContactLinks() {
         </div>
 
         <div className="social-contact__grid">
-          {socialLinks.map((link) => (
-            <article
-              className={`social-contact-card ${link.featured ? 'social-contact-card--featured' : ''}`.trim()}
-              key={link.id}
-            >
-              <div className="social-contact-card__content">
-                <span>{link.label}</span>
-                <h3>{link.handle}</h3>
-                <p>{link.description}</p>
-              </div>
-              <a
-                className="social-contact-card__link"
-                href={link.url}
-                target={isExternalUrl(link.url) ? '_blank' : undefined}
-                rel={isExternalUrl(link.url) ? 'noreferrer' : undefined}
-                aria-label={`Acessar ${link.label}`}
+          {socialLinks.map((link) => {
+            const isExternal = isExternalUrl(link.url)
+
+            return (
+              <article
+                className={`social-contact-card ${link.featured ? 'social-contact-card--featured' : ''}`.trim()}
+                key={link.id}
               >
-                Acessar
-              </a>
-            </article>
-          ))}
+                <div className="social-contact-card__content">
+                  <span>{link.label}</span>
+                  <h3>{link.handle}</h3>
+                  <p>{link.description}</p>
+                </div>
+                <a
+                  className="social-contact-card__link"
+                  href={link.url}
+                  target={isExternal ? '_blank' : undefined}
+                  rel={isExternal ? 'noreferrer' : undefined}
+                  aria-label={`Acessar ${link.label}`}
+                >
+                  Acessar
+                </a>
+              </article>
+            )
+          })}
         </div>
       </div>
       <BrandPigeon />

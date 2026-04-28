@@ -49,7 +49,13 @@ function ContactInstagramHighlights() {
             <article className="instagram-card contact-instagram-card" key={post.id}>
               <span className="instagram-card__label">{post.label}</span>
               <div className="instagram-card__frame">
-                <img className="instagram-card__image" src={post.image} alt={post.title} />
+                <img
+                  className="instagram-card__image"
+                  src={post.image}
+                  alt={post.title}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <h3>{post.title}</h3>
               <a

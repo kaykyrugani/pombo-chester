@@ -27,6 +27,19 @@ const instagramVideos = [
   },
 ]
 
+function handleVideoPlay(event) {
+  const playRequest = event.currentTarget.play()
+
+  if (playRequest) {
+    playRequest.catch(() => {})
+  }
+}
+
+function handleVideoReset(event) {
+  event.currentTarget.pause()
+  event.currentTarget.currentTime = 0
+}
+
 function InstagramFeed() {
   return (
     <section className="instagram-section section section-muted" aria-label="Assista ao vivo">
@@ -54,11 +67,8 @@ function InstagramFeed() {
                   playsInline
                   loop
                   preload="metadata"
-                  onMouseEnter={(event) => event.currentTarget.play()}
-                  onMouseLeave={(event) => {
-                    event.currentTarget.pause()
-                    event.currentTarget.currentTime = 0
-                  }}
+                  onMouseEnter={handleVideoPlay}
+                  onMouseLeave={handleVideoReset}
                 />
               </div>
               <h3>{item.title}</h3>

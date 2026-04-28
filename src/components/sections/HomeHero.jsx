@@ -36,7 +36,7 @@ function HomeHero() {
         <div className="home-hero__gallery" aria-label="Integrantes da banda Pombo Chester">
           {members.map((member, index) => (
             <figure className="home-hero__member" key={`${member.name}-${index}`}>
-              <img src={member.image} alt={`${member.name} ${index + 1}`} />
+              <img src={member.image} alt={`${member.name} ${index + 1}`} decoding="async" />
             </figure>
           ))}
         </div>

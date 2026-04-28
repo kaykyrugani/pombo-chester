@@ -1,15 +1,21 @@
+import { memo, useCallback } from 'react'
 import officialLinks from '../../data/officialLinks.js'
 
 function EventTypeCard({ event, isOpen, onToggle }) {
   const descriptionId = `event-type-description-${event.id}`
 
-  const handleCardClick = (eventClick) => {
+  const handleCardClick = useCallback((eventClick) => {
     if (eventClick.target.closest('a, button')) {
       return
     }
 
-    onToggle()
-  }
+    onToggle(event.id)
+  }, [event.id, onToggle])
+
+  const handleToggleClick = useCallback((eventClick) => {
+    eventClick.stopPropagation()
+    onToggle(event.id)
+  }, [event.id, onToggle])
 
   return (
     <article
@@ -38,10 +44,7 @@ function EventTypeCard({ event, isOpen, onToggle }) {
             aria-label={isOpen ? `Fechar ${event.title}` : `Abrir ${event.title}`}
             aria-controls={descriptionId}
             aria-expanded={isOpen}
-            onClick={(eventClick) => {
-              eventClick.stopPropagation()
-              onToggle()
-            }}
+            onClick={handleToggleClick}
           >
             {isOpen ? '×' : '+'}
           </button>
@@ -65,4 +68,4 @@ function EventTypeCard({ event, isOpen, onToggle }) {
   )
 }
 
-export default EventTypeCard
+export default memo(EventTypeCard)

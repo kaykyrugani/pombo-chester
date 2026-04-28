@@ -1,4 +1,6 @@
-function AnimatedFooterWord() {
+import { memo } from 'react'
+
+const AnimatedFooterWord = memo(function AnimatedFooterWord() {
   return (
     <svg
       className="footer-word"
@@ -12,6 +14,6 @@ function AnimatedFooterWord() {
       </text>
     </svg>
   )
-}
+})
 
 export default AnimatedFooterWord

@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Button from '../ui/Button.jsx'
 import logoPombo from '../../assets/logo/LogoPombo.jpg'
 import officialLinks from '../../data/officialLinks.js'
+
+const mobileMenuId = 'mobile-navigation'
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -11,11 +13,18 @@ const navItems = [
   { label: 'Contato + Mídia', href: '/contato' },
 ]
 
+function getLinkClass(href, baseClass, currentPath) {
+  return `${baseClass} ${currentPath === href ? 'is-active' : ''}`.trim()
+}
+
 function Header({ currentPath = '/' }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const mobileMenuId = 'mobile-navigation'
 
   useEffect(() => {
+    if (!isMenuOpen) {
+      return undefined
+    }
+
     function handleKeyDown(event) {
       if (event.key === 'Escape') {
         setIsMenuOpen(false)
@@ -27,23 +36,28 @@ function Header({ currentPath = '/' }) {
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
     }
+  }, [isMenuOpen])
+
+  const closeMenu = useCallback(() => {
+    setIsMenuOpen(false)
   }, [])
 
-  const getLinkClass = (href, baseClass) =>
-    `${baseClass} ${currentPath === href ? 'is-active' : ''}`.trim()
+  const toggleMenu = useCallback(() => {
+    setIsMenuOpen((isOpen) => !isOpen)
+  }, [])
 
   return (
     <header className="site-header">
       <div className="container site-header__inner">
-        <a className="brand" href="/" aria-label="Pombo Chester - Home" onClick={() => setIsMenuOpen(false)}>
-          <img src={logoPombo} alt="Pombo Chester Logo" className="brand__mark" />
+        <a className="brand" href="/" aria-label="Pombo Chester - Home" onClick={closeMenu}>
+          <img src={logoPombo} alt="Pombo Chester Logo" className="brand__mark" decoding="async" />
           <span className="brand__name">Pombo Chester</span>
         </a>
 
         <nav className="nav" aria-label="Navegacao principal">
           {navItems.map((item) => (
             <a
-              className={getLinkClass(item.href, 'nav__link')}
+              className={getLinkClass(item.href, 'nav__link', currentPath)}
               href={item.href}
               key={item.href}
             >
@@ -63,7 +77,7 @@ function Header({ currentPath = '/' }) {
           aria-expanded={isMenuOpen}
           aria-label={isMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
           className={`mobile-menu-toggle ${isMenuOpen ? 'is-open' : ''}`.trim()}
-          onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+          onClick={toggleMenu}
           type="button"
         >
           <span />
@@ -81,10 +95,10 @@ function Header({ currentPath = '/' }) {
         <div className="container mobile-menu__inner">
           {navItems.map((item) => (
             <a
-              className={getLinkClass(item.href, 'mobile-nav-link')}
+              className={getLinkClass(item.href, 'mobile-nav-link', currentPath)}
               href={item.href}
               key={item.href}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={closeMenu}
             >
               {item.label}
             </a>
@@ -94,7 +108,7 @@ function Header({ currentPath = '/' }) {
             href={officialLinks.whatsapp}
             target="_blank"
             rel="noreferrer"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={closeMenu}
           >
             Contratar Show
           </a>
