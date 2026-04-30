@@ -1,9 +1,9 @@
 import Button from '../ui/Button.jsx'
 import { BrandPigeon } from '../ui/brand-pigeon.tsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
-import palcoAcesso from '../../assets/images/videos/PalcoAcesso.MOV'
-import antesDaEntrada from '../../assets/images/videos/AntesDaEntrada.MOV'
-import festaAcontecendo from '../../assets/images/videos/FestaAcontecendo.MOV'
+import palcoAcesso from '../../assets/images/videos/Palcoacessocompress.mp4'
+import antesDaEntrada from '../../assets/images/videos/Antesdaentradacompress.mp4'
+import festaAcontecendo from '../../assets/images/videos/Festaacontecendocompress.mp4'
 import officialLinks from '../../data/officialLinks.js'
 
 const instagramVideos = [
@@ -63,7 +63,6 @@ function InstagramFeed() {
                 <video
                   className="instagram-card__video"
                   src={item.video}
-                  muted
                   playsInline
                   loop
                   preload="metadata"
