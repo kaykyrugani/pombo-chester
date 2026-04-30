@@ -30,8 +30,8 @@ function HomeProofSocial() {
         <div className="home-proof-social__grid">
           {testimonials.map((testimonial) => (
             <blockquote key={testimonial.id} className="home-proof-social__card">
-              <p className="home-proof-social__quote">"{testimonial.quote}"</p>
-              <footer className="home-proof-social__author">— {testimonial.author}</footer>
+              <p className="home-proof-social__quote">{testimonial.quote}</p>
+              <footer className="home-proof-social__author">{testimonial.author}</footer>
             </blockquote>
           ))}
         </div>

@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import BandCTA from '../../components/sections/BandCTA.jsx'
 import BandEventTypes from '../../components/sections/BandEventTypes.jsx'
 import BandIntro from '../../components/sections/BandIntro.jsx'
