@@ -7,12 +7,12 @@ const nextShows = shows.slice(0, 3)
 
 function HomeNextShows() {
   return (
-    <section className="home-next-shows section section-light" aria-label="Próximos Shows">
+    <section className="home-next-shows section section-light" aria-label="Agenda de shows">
       <div className="container">
         <SectionTitle
           eyebrow="Agenda"
-          title="Próximos Shows"
-          subtitle="Confira onde a Pombo Chester vai levar humor, brasilidade e energia nos próximos eventos."
+          title="Agenda de shows e eventos"
+          subtitle="Confira onde a Pombo Chester já se apresentou e veja a agenda. Também realizamos eventos privados sob consulta."
         />
 
         <div className="home-next-shows__grid">

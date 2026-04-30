@@ -47,8 +47,8 @@ function InstagramFeed() {
         <div className="instagram-section__header">
           <SectionTitle
             eyebrow="Instagram"
-            title="Assista ao vivo"
-            subtitle="Bastidores, cortes de shows e momentos da banda para sentir a energia antes do convite."
+            title="Veja a Pombo Chester ao vivo"
+            subtitle="Assista bastidores, cortes de shows e momentos reais para sentir como é a experiência da banda no palco."
           />
           <Button href={officialLinks.instagram} variant="secondary" target="_blank" rel="noreferrer">
             Ver no Instagram

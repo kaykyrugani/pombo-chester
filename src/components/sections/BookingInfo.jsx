@@ -4,17 +4,17 @@ const bookingSteps = [
   {
     label: 'PASSO 1',
     title: 'Envie sua ideia',
-    text: 'Conte a data, cidade, tipo de evento e estrutura disponível.',
+    text: 'Inclua data, cidade, tipo de evento e estrutura disponível.',
   },
   {
     label: 'PASSO 2',
-    title: 'Confirmamos disponibilidade',
-    text: 'A banda avalia agenda, formato do show e detalhes técnicos.',
+    title: 'Verificamos disponibilidade',
+    text: 'A banda analisa agenda e formato ideal para o seu evento.',
   },
   {
     label: 'PASSO 3',
-    title: 'Fechamos o show',
-    text: 'Com tudo alinhado, sua data entra na agenda e o palco vira festa.',
+    title: 'Confirmamos o show',
+    text: 'Com tudo alinhado, sua data entra na agenda e o evento ganha vida.',
   },
 ]
 
@@ -24,8 +24,8 @@ function BookingInfo() {
       <div className="container">
         <SectionTitle
           eyebrow="Contratação"
-          title="Como levar a Pombo Chester para o seu evento?"
-          subtitle="Um caminho direto para consultar agenda, alinhar formato e transformar a data em show."
+          title="Como contratar a Pombo Chester para seu evento"
+          subtitle="Um processo simples para garantir música ao vivo no seu evento."
         />
 
         <div className="dark-feature-panel">

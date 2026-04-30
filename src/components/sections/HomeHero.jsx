@@ -17,18 +17,22 @@ function HomeHero() {
     <section className="home-hero" aria-labelledby="home-hero-title">
       <div className="container">
         <div className="home-hero__content">
-          <span className="home-hero__badge">Shows, festas e eventos com alma brasileira</span>
-          <h1 id="home-hero-title">O show que transforma seu evento em festa de verdade</h1>
+          <span className="home-hero__badge">Banda para eventos com música ao vivo</span>
+          <h1 id="home-hero-title">Banda para eventos ao vivo que transforma qualquer festa em um show inesquecível</h1>
           <p className="home-hero__subtitle">
-            A Pombo Chester leva repertorio brasileiro, humor irreverente e energia
-            ao vivo para casas de show, festas e eventos que precisam de palco aceso.
+            A Pombo Chester é uma banda para eventos com música ao vivo, humor e energia que anima festas, eventos corporativos e casas de show em Minas Gerais e todo o Brasil.
           </p>
+          <ul className="home-hero__benefits">
+            <li>Shows para eventos corporativos, festas e festivais</li>
+            <li>Repertório brasileiro com interação com o público</li>
+            <li>Estrutura profissional e presença de palco</li>
+          </ul>
           <div className="home-hero__actions">
             <Button href={officialLinks.whatsapp} variant="primary" target="_blank" rel="noreferrer">
-              Contratar Show
+              Solicitar orçamento no WhatsApp
             </Button>
             <Button href="/agenda" variant="outline">
-              Ver Agenda
+              Ver disponibilidade da banda
             </Button>
           </div>
         </div>

@@ -9,8 +9,8 @@ function SpotifyEmbed() {
         <div className="spotify-section__copy">
           <SectionTitle
             eyebrow="Spotify"
-            title="Ouça a Pombo Chester"
-            subtitle="Conheça o som da banda antes de levar essa energia para o seu evento."
+            title="Ouça a Pombo Chester antes de contratar"
+            subtitle="Conheça o estilo da banda e veja se combina com a energia do seu evento."
           />
           <Button href={officialLinks.spotify} variant="primary" target="_blank" rel="noreferrer">
             Abrir no Spotify

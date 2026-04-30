@@ -24,8 +24,8 @@ function BandValues() {
       <div className="container">
         <SectionTitle
           eyebrow="Proposta"
-          title="O que move a Pombo Chester"
-          subtitle="Três pilares para entregar um show divertido, musical e pronto para evento."
+          title="O que faz da Pombo Chester a banda ideal para o seu evento"
+          subtitle="Três pilares que garantem um show completo para eventos ao vivo."
         />
 
         <div className="dark-feature-panel">

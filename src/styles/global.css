@@ -646,6 +646,24 @@ ul {
   width: 100%;
 }
 
+.home-hero__benefits {
+  list-style: none;
+  margin: var(--space-6) auto 0;
+  max-width: 45rem;
+  padding: 0;
+}
+
+.home-hero__benefits li {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-white);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+}
+
 .home-next-areas {
   display: grid;
   gap: var(--space-3);
@@ -1035,6 +1053,110 @@ ul {
 .home-final-cta__actions .button--outline {
   background: var(--color-white);
   color: var(--color-black);
+}
+
+/* Seção Proposta de Valor */
+.home-value-prop {
+  border-bottom: var(--border-strong);
+  padding-block: var(--space-10);
+}
+
+/* Seção Diferenciais */
+.home-differentials {
+  border-bottom: var(--border-strong);
+  padding-block: var(--space-10);
+  position: relative;
+}
+
+.home-differentials::before {
+  background: var(--color-accent);
+  border-bottom: var(--border-strong);
+  content: '';
+  display: block;
+  height: 0.8rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.home-differentials__grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  margin-top: var(--space-8);
+}
+
+.home-differentials__card {
+  background: rgba(255, 255, 255, 0.05);
+  border: var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  transition: all 0.3s ease;
+}
+
+.home-differentials__card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-accent);
+}
+
+.home-differentials__card-title {
+  color: var(--color-white);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: var(--space-2);
+}
+
+.home-differentials__card-desc {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Seção Prova Social */
+.home-proof-social {
+  border-bottom: var(--border-strong);
+  padding-block: var(--space-10);
+}
+
+.home-proof-social__grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  margin-top: var(--space-8);
+}
+
+.home-proof-social__card {
+  background: var(--color-white);
+  border: var(--border-strong);
+  border-radius: var(--radius-md);
+  margin: 0;
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.home-proof-social__card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.home-proof-social__quote {
+  color: var(--color-black);
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0 0 var(--space-3) 0;
+}
+
+.home-proof-social__author {
+  color: var(--color-primary-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .band-page-hero {
@@ -1437,6 +1559,96 @@ ul {
   color: var(--color-black);
 }
 
+/* Seção Tipos de Eventos */
+.band-event-types {
+  border-bottom: var(--border-strong);
+  padding-block: var(--space-10);
+  position: relative;
+}
+
+.band-event-types::before {
+  background: var(--color-accent);
+  border-bottom: var(--border-strong);
+  content: '';
+  display: block;
+  height: 0.8rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.band-event-types__grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  margin-top: var(--space-8);
+}
+
+.band-event-types__item {
+  background: var(--color-white);
+  border: var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.band-event-types__item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+}
+
+.band-event-types__icon {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: var(--space-3);
+}
+
+.band-event-types__title {
+  color: var(--color-black);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Seção Depoimentos */
+.band-testimonials {
+  border-bottom: var(--border-strong);
+  padding-block: var(--space-10);
+}
+
+.band-testimonials__grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  margin-top: var(--space-8);
+}
+
+.band-testimonials__card {
+  background: rgba(255, 255, 255, 0.05);
+  border: var(--border-strong);
+  border-radius: var(--radius-md);
+  margin: 0;
+  padding: var(--space-6);
+  transition: all 0.3s ease;
+}
+
+.band-testimonials__card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-accent);
+}
+
+.band-testimonials__quote {
+  color: var(--color-white);
+  font-size: 0.95rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 0;
+}
+
 .road-page-hero {
   background:
     linear-gradient(135deg, rgba(6, 56, 38, 0.94), rgba(11, 93, 59, 0.98)),
@@ -1598,12 +1810,32 @@ ul {
   transform: rotate(1deg);
 }
 
-.road-intro__note span {
-  display: block;
+.road-intro__note {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.road-intro__note h3 {
   font-family: var(--font-heading);
-  font-size: clamp(2.1rem, 8vw, 3.5rem);
+  font-size: clamp(2rem, 7vw, 3.2rem);
+  font-weight: 400;
   line-height: 0.95;
+  margin: 0;
   text-transform: uppercase;
+}
+
+.road-intro__note p {
+  font-weight: 800;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.venues-showcase__note {
+  color: var(--color-primary-dark);
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin: var(--space-4) 0 0;
+  max-width: 44rem;
 }
 
 .venues-showcase__grid,
@@ -1917,6 +2149,14 @@ ul {
   justify-content: center;
 }
 
+.road-cta__local {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 1rem;
+  margin-top: var(--space-2);
+  max-width: 48rem;
+  padding-top: var(--space-4);
+}
+
 .agenda-page-hero {
   background:
     linear-gradient(135deg, rgba(6, 56, 38, 0.94), rgba(11, 93, 59, 0.98)),
@@ -1991,6 +2231,101 @@ ul {
 .agenda-cta__actions .button--outline {
   background: var(--color-white);
   color: var(--color-black);
+}
+
+/* Seção Localização */
+.agenda-location {
+  background: linear-gradient(135deg, var(--color-primary-dark), rgba(11, 93, 59, 0.8));
+  border-bottom: var(--border-strong);
+  color: var(--color-white);
+  padding-block: var(--space-8);
+  position: relative;
+}
+
+.agenda-location::before {
+  background: var(--color-accent);
+  border-bottom: var(--border-strong);
+  content: '';
+  display: block;
+  height: 0.8rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.agenda-location__content {
+  max-width: 55rem;
+  text-align: center;
+}
+
+.agenda-location__title {
+  color: var(--color-white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+}
+
+.agenda-location__text {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-3);
+}
+
+.agenda-location__text strong {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.agenda-location__secondary {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Seção Trust (Por que acompanhar) */
+.agenda-trust {
+  border-bottom: var(--border-strong);
+  padding-block: var(--space-10);
+}
+
+.agenda-trust__grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  margin-top: var(--space-8);
+}
+
+.agenda-trust__card {
+  background: var(--color-white);
+  border: var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.agenda-trust__card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+}
+
+.agenda-trust__title {
+  color: var(--color-black);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-2) 0;
+}
+
+.agenda-trust__description {
+  color: var(--color-black);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.85;
 }
 
 .agenda-page-hero__marker {
@@ -2392,6 +2727,55 @@ ul {
   color: var(--color-black);
 }
 
+.contact-booking-prompt {
+  border-bottom: var(--border-strong);
+  position: relative;
+}
+
+.contact-booking-prompt::before {
+  background: var(--color-accent);
+  border-bottom: var(--border-strong);
+  content: '';
+  display: block;
+  height: 0.8rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.contact-booking-prompt__inner {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 54rem;
+}
+
+.contact-booking-prompt__inner p {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.contact-booking-prompt__list {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+}
+
+.contact-booking-prompt__list li {
+  background: var(--color-white);
+  border: var(--border-strong);
+  border-left: 0.45rem solid var(--color-accent);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  font-weight: 900;
+  padding: var(--space-3) var(--space-4);
+  text-transform: uppercase;
+}
+
 .social-contact {
   border-bottom: var(--border-strong);
   overflow: visible;
@@ -2432,6 +2816,8 @@ ul {
   background:
     linear-gradient(180deg, rgba(244, 197, 66, 0.34), transparent 58%),
     var(--color-white);
+  box-shadow: 8px 8px 0 var(--color-black);
+  transform: translate(-2px, -2px);
 }
 
 .social-contact-card__content {
@@ -2556,6 +2942,14 @@ ul {
   justify-content: center;
 }
 
+.contact-media-cta__local {
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 1rem;
+  margin-top: var(--space-2);
+  max-width: 50rem;
+  padding-top: var(--space-4);
+}
+
 @media (min-width: 760px) {
   .container {
     width: min(100% - 3rem, var(--container-max));
@@ -2605,6 +2999,26 @@ ul {
 
   .home-next-shows__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-differentials__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .home-proof-social__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .band-event-types__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .band-testimonials__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .agenda-trust__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .spotify-section__inner {
@@ -2677,6 +3091,10 @@ ul {
   }
 
   .social-contact__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-booking-prompt__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2765,6 +3183,26 @@ ul {
   }
 
   .home-next-shows__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-differentials__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-proof-social__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .band-event-types__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .band-testimonials__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .agenda-trust__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 

@@ -8,8 +8,8 @@ function AgendaShows() {
       <div className="container">
         <SectionTitle
           eyebrow="Ao vivo"
-          title="Próximos Shows"
-          subtitle="Datas confirmadas para você acompanhar a Pombo Chester ao vivo."
+          title="Próximos shows da Pombo Chester ao vivo"
+          subtitle="Acompanhe as datas confirmadas da Pombo Chester e veja onde a banda já está levando música ao vivo, humor e energia para o público."
         />
 
         <div className="agenda-shows__grid">

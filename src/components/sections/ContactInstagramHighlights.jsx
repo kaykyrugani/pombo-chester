@@ -35,12 +35,12 @@ function ContactInstagramHighlights() {
       <div className="container">
         <div className="instagram-section__header">
           <SectionTitle
-            eyebrow="Instagram"
-            title="Veja a banda em ação"
-            subtitle="Cortes de show, bastidores e momentos que mostram a energia da Pombo Chester no palco."
+            eyebrow="Prova visual"
+            title="Veja a banda ao vivo antes de contratar"
+            subtitle="Assista a trechos reais dos shows e entenda na prática a energia da Pombo Chester no palco."
           />
           <Button href={officialLinks.instagram} variant="secondary" target="_blank" rel="noreferrer">
-            Ver no Instagram
+            Ver vídeos no Instagram
           </Button>
         </div>
 

@@ -4,17 +4,17 @@ const highlights = [
   {
     label: 'Formatos',
     title: 'Festas e eventos particulares',
-    text: 'Shows pensados para festas, celebrações e encontros com clima leve, interação e participação do público.',
+    text: 'Shows personalizados para diferentes públicos, com interação e repertório adaptado.',
   },
   {
     label: 'Palco',
     title: 'Palco e casas de show',
-    text: 'Repertório envolvente e presença de palco para eventos que precisam de energia do começo ao fim.',
+    text: 'Apresentações com energia contínua, presença de palco e repertório envolvente.',
   },
   {
     label: 'Ao vivo',
     title: 'Interação com o público',
-    text: 'Humor, músicas conhecidas e dinâmica ao vivo que aproximam banda e plateia.',
+    text: 'Humor, músicas conhecidas e dinâmica que aproxima banda e plateia.',
   },
 ]
 
@@ -24,8 +24,8 @@ function RoadHighlights() {
       <div className="container">
         <SectionTitle
           eyebrow="Ao vivo"
-          title="O que esperar de um show da Pombo Chester"
-          subtitle="Veja como nossos shows funcionam na prática — do clima à interação com o público."
+          title="Como funciona um show da Pombo Chester ao vivo"
+          subtitle="Entenda na prática o que faz a Pombo Chester se destacar como banda para eventos."
         />
 
         <div className="road-highlights__panel dark-feature-panel">

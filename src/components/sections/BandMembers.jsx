@@ -58,8 +58,8 @@ function BandMembers() {
         <div className="band-members__copy">
           <SectionTitle
             eyebrow="Formação"
-            title="Integrantes"
-            subtitle="Conheça quem leva a Pombo Chester para o palco."
+            title="Integrantes da banda Pombo Chester"
+            subtitle="Conheça os músicos que fazem da Pombo Chester uma banda completa para eventos, com presença de palco, performance ao vivo e interação com o público."
           />
           <p>
             Uma formação pensada para transformar repertório brasileiro,

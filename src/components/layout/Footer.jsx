@@ -87,7 +87,11 @@ function Footer() {
               </li>
               <li>
                 <span>Localização:</span>
-                <span>São Paulo, SP</span>
+                <span>Monte Santo de Minas, MG</span>
+              </li>
+              <li>
+                <span>Cobertura:</span>
+                <span>Atendemos em todo o Brasil</span>
               </li>
             </ul>
           </address>

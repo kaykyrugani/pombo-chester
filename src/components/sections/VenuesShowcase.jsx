@@ -8,9 +8,12 @@ function VenuesShowcase() {
       <div className="container">
         <SectionTitle
           eyebrow="Palcos"
-          title="Onde a banda já marcou presença"
-          subtitle="Casas, eventos e festas que ajudam a contar a trajetória da Pombo Chester ao vivo."
+          title="Eventos, festas e casas de show onde já nos apresentamos"
+          subtitle="Confira alguns dos palcos que fazem parte da trajetória da Pombo Chester como banda ao vivo para eventos."
         />
+        <p className="venues-showcase__note">
+          Alguns registros representam formatos e exemplos de apresentações.
+        </p>
 
         <ExpandingVenueCards items={venues} defaultActiveIndex={0} />
       </div>

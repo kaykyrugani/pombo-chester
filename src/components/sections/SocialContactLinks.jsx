@@ -11,10 +11,11 @@ function SocialContactLinks() {
       <div className="container brand-pigeon-content">
         <div className="social-contact__header">
           <span className="eyebrow">Canais oficiais</span>
-          <h2 id="social-contact-title">Contato direto</h2>
+          <h2 id="social-contact-title">Escolha o melhor canal para falar com a Pombo Chester</h2>
           <p>
-            Escolha o canal mais prático para acompanhar novidades, conversar com
-            a banda ou consultar disponibilidade.
+            Para orçamento banda, disponibilidade e contratação, o WhatsApp é o
+            caminho mais rápido. Os outros canais ajudam você a conhecer melhor a
+            banda ao vivo antes de decidir.
           </p>
         </div>
 
@@ -39,7 +40,7 @@ function SocialContactLinks() {
                   rel={isExternal ? 'noreferrer' : undefined}
                   aria-label={`Acessar ${link.label}`}
                 >
-                  Acessar
+                  {link.cta}
                 </a>
               </article>
             )

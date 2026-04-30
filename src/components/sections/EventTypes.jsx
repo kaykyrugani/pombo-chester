@@ -16,8 +16,8 @@ function EventTypes() {
       <div className="container">
         <SectionTitle
           eyebrow="Formatos"
-          title="Tipos de eventos"
-          subtitle="A Pombo Chester se adapta a diferentes palcos, públicos e formatos de apresentação."
+          title="Eventos e formatos que a Pombo Chester atende"
+          subtitle="A Pombo Chester é uma banda versátil, preparada para diferentes tipos de evento com música ao vivo e alta energia."
         />
 
         <div className="event-types__grid event-types-grid">

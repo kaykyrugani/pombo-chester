@@ -30,9 +30,11 @@ const ExpandingVenueCard = memo(function ExpandingVenueCard({
       <span className="expanding-venue-content">
         <span className="expanding-venue-label">{item.type}</span>
         <span className="expanding-venue-title">{item.title}</span>
-        <span className="expanding-venue-location">
-          {item.city} / {item.state}
-        </span>
+        {item.city && item.state && (
+          <span className="expanding-venue-location">
+            {item.city} / {item.state}
+          </span>
+        )}
         <span className="expanding-venue-description">{item.description}</span>
       </span>
     </button>

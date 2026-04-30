@@ -7,17 +7,17 @@ function RoadPageHero() {
       <div className="container road-page-hero__inner">
         <div className="road-page-hero__content">
           <span className="road-page-hero__badge">Na Estrada</span>
-          <h1>Palcos, festas e eventos por onde a Pombo Chester passou</h1>
+          <h1>Por onde a Pombo Chester já tocou  Banda ao vivo para eventos</h1>
           <p>
-            Uma vitrine dos lugares, casas e eventos que ajudaram a construir a
-            presença da banda ao vivo.
+            Veja os palcos, festas e eventos onde a Pombo Chester levou música
+            ao vivo, humor e energia para diferentes públicos.
           </p>
           <div className="road-page-hero__actions">
-            <Button href={officialLinks.whatsapp} variant="primary" target="_blank" rel="noreferrer">
-              Contratar Show
+            <Button href="/agenda" variant="primary">
+              Ver agenda de shows
             </Button>
-            <Button href="/agenda" variant="outline">
-              Ver Agenda
+            <Button href={officialLinks.whatsapp} variant="outline" target="_blank" rel="noreferrer">
+              Solicitar orçamento
             </Button>
           </div>
         </div>
@@ -25,7 +25,7 @@ function RoadPageHero() {
         <div className="road-page-hero__stamp" aria-hidden="true">
           <span>Ao vivo</span>
           <strong>Na Estrada</strong>
-          <span>Show real</span>
+          <span>Eventos</span>
         </div>
       </div>
     </section>
