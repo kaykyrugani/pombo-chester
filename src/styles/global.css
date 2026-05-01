@@ -1182,74 +1182,6 @@ ul {
   margin: 0;
 }
 
-/* Seção Prova Social */
-.home-proof-social {
-  border-bottom: var(--border-strong);
-  padding-block: var(--space-10);
-}
-
-.home-proof-social__grid {
-  display: grid;
-  gap: var(--space-6);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-  margin-top: var(--space-8);
-}
-
-.home-proof-social__card {
-  background:
-    linear-gradient(180deg, rgba(244, 197, 66, 0.12), transparent 58%),
-    var(--color-white);
-  border: var(--border-strong);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  margin: 0;
-  padding: var(--space-6);
-  position: relative;
-  transition: box-shadow var(--transition-fast), transform var(--transition-fast);
-}
-
-.home-proof-social__card::before {
-  color: var(--color-accent);
-  content: '“';
-  font-family: var(--font-heading);
-  font-size: clamp(4rem, 14vw, 6.5rem);
-  left: var(--space-4);
-  line-height: 0.8;
-  opacity: 0.9;
-  position: absolute;
-  top: var(--space-3);
-}
-
-.home-proof-social__card:nth-child(2) {
-  transform: rotate(0.8deg);
-}
-
-.home-proof-social__card:nth-child(3) {
-  transform: rotate(-0.8deg);
-}
-
-.home-proof-social__quote {
-  color: var(--color-black);
-  font-size: 1rem;
-  font-style: italic;
-  font-weight: 700;
-  line-height: 1.6;
-  margin: 0 0 var(--space-3) 0;
-  padding-top: var(--space-8);
-  position: relative;
-}
-
-.home-proof-social__author {
-  color: var(--color-primary-dark);
-  border-top: 2px solid rgba(17, 17, 17, 0.16);
-  font-weight: 700;
-  font-size: 0.85rem;
-  display: block;
-  letter-spacing: 0.05em;
-  padding-top: var(--space-3);
-  text-transform: uppercase;
-}
-
 .band-page-hero {
   background:
     linear-gradient(135deg, rgba(6, 56, 38, 0.94), rgba(11, 93, 59, 0.98)),
@@ -1756,41 +1688,6 @@ ul {
   .band-event-types__pigeon {
     display: none;
   }
-}
-
-/* Seção Depoimentos */
-.band-testimonials {
-  border-bottom: var(--border-strong);
-  padding-block: var(--space-10);
-}
-
-.band-testimonials__grid {
-  display: grid;
-  gap: var(--space-5);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-  margin-top: var(--space-8);
-}
-
-.band-testimonials__card {
-  background: rgba(255, 255, 255, 0.05);
-  border: var(--border-strong);
-  border-radius: var(--radius-md);
-  margin: 0;
-  padding: var(--space-6);
-  transition: all 0.3s ease;
-}
-
-.band-testimonials__card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--color-accent);
-}
-
-.band-testimonials__quote {
-  color: var(--color-white);
-  font-size: 0.95rem;
-  font-style: italic;
-  line-height: 1.6;
-  margin: 0;
 }
 
 .road-page-hero {
@@ -3237,15 +3134,7 @@ ul {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .home-proof-social__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .band-event-types__grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .band-testimonials__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -3404,22 +3293,6 @@ ul {
       #0e6b45;
   }
 
-  .home-proof-social__card:hover {
-    box-shadow: 8px 8px 0 var(--color-black);
-  }
-
-  .home-proof-social__card:nth-child(1):hover {
-    transform: translateY(-4px) rotate(-0.4deg);
-  }
-
-  .home-proof-social__card:nth-child(2):hover {
-    transform: translateY(-4px) rotate(0.4deg);
-  }
-
-  .home-proof-social__card:nth-child(3):hover {
-    transform: translateY(-4px) rotate(-0.4deg);
-  }
-
   .agenda-trust__card:hover {
     box-shadow: 8px 8px 0 var(--color-black);
     transform: translateY(-6px);
@@ -3458,15 +3331,7 @@ ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .home-proof-social__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .band-event-types__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .band-testimonials__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -3561,15 +3426,9 @@ ul {
 @media (prefers-reduced-motion: reduce) {
   .home-hero__benefits li,
   .home-differentials__card,
-  .home-proof-social__card,
   .agenda-location .button,
   .agenda-trust__card {
     transition: none;
-  }
-
-  .home-proof-social__card:nth-child(2),
-  .home-proof-social__card:nth-child(3) {
-    transform: none;
   }
 
   .footer-word__text {

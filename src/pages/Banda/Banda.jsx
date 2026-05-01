@@ -3,7 +3,6 @@ import BandEventTypes from '../../components/sections/BandEventTypes.jsx'
 import BandIntro from '../../components/sections/BandIntro.jsx'
 import BandMembers from '../../components/sections/BandMembers.jsx'
 import BandPageHero from '../../components/sections/BandPageHero.jsx'
-import BandTestimonials from '../../components/sections/BandTestimonials.jsx'
 import BandValues from '../../components/sections/BandValues.jsx'
 import usePageMeta from '../../hooks/usePageMeta.js'
 
@@ -21,7 +20,6 @@ function Banda() {
       <BandValues />
       <BandEventTypes />
       <BandMembers />
-      <BandTestimonials />
       <BandCTA />
     </>
   )

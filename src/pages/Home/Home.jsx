@@ -2,7 +2,6 @@ import HomeHero from '../../components/sections/HomeHero.jsx'
 import HomeValueProposition from '../../components/sections/HomeValueProposition.jsx'
 import HomeDifferentials from '../../components/sections/HomeDifferentials.jsx'
 import HomeNextShows from '../../components/sections/HomeNextShows.jsx'
-import HomeProofSocial from '../../components/sections/HomeProofSocial.jsx'
 import SpotifyEmbed from '../../components/sections/SpotifyEmbed.jsx'
 import InstagramFeed from '../../components/sections/InstagramFeed.jsx'
 import HomeFinalCTA from '../../components/sections/HomeFinalCTA.jsx'
@@ -21,7 +20,6 @@ function Home() {
       <HomeValueProposition />
       <HomeDifferentials />
       <HomeNextShows />
-      <HomeProofSocial />
       <SpotifyEmbed />
       <InstagramFeed />
       <HomeFinalCTA />
