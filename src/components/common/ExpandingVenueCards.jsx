@@ -1,4 +1,6 @@
-import { memo, useCallback, useState } from 'react'
+import { memo, useCallback, useEffect, useMemo, useState } from 'react'
+
+const MOBILE_BREAKPOINT = 770
 
 const ExpandingVenueCard = memo(function ExpandingVenueCard({
   index,
@@ -12,11 +14,13 @@ const ExpandingVenueCard = memo(function ExpandingVenueCard({
 
   return (
     <button
-      aria-pressed={isActive}
+      aria-expanded={isActive}
       className={`expanding-venue-card${isActive ? ' is-active' : ''}`}
+      aria-label={`${item.title}${item.city && item.state ? `, ${item.city} / ${item.state}` : ''}`}
       onClick={handleActivate}
       onFocus={handleActivate}
       onMouseEnter={handleActivate}
+      tabIndex={0}
       type="button"
     >
       <img
@@ -43,12 +47,43 @@ const ExpandingVenueCard = memo(function ExpandingVenueCard({
 
 function ExpandingVenueCards({ items, defaultActiveIndex = 0 }) {
   const [activeIndex, setActiveIndex] = useState(defaultActiveIndex)
+  const [isMobile, setIsMobile] = useState(() => (
+    typeof window !== 'undefined' ? window.innerWidth <= MOBILE_BREAKPOINT : false
+  ))
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT)
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   const handleActivate = useCallback((index) => {
     setActiveIndex((currentIndex) => (currentIndex === index ? currentIndex : index))
   }, [])
 
+  const gridStyle = useMemo(() => {
+    const template = items.map((_, index) => (index === activeIndex ? '5fr' : '1fr')).join(' ')
+
+    if (isMobile) {
+      return {
+        gridTemplateColumns: '1fr',
+        gridTemplateRows: template,
+      }
+    }
+
+    return {
+      gridTemplateColumns: template,
+      gridTemplateRows: '1fr',
+    }
+  }, [activeIndex, isMobile, items])
+
   return (
-    <div className="expanding-venues">
+    <div className="expanding-venues" style={gridStyle}>
       {items.map((item, index) => (
         <ExpandingVenueCard
           index={index}
