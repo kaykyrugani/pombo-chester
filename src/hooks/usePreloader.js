@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 const PRELOADER_TIMING = {
   intro: 850,
@@ -26,9 +26,11 @@ function waitForWindowLoad() {
 function usePreloader() {
   const [phase, setPhase] = useState('intro')
   const [isVisible, setIsVisible] = useState(true)
+  const isTransitioning = useRef(false)
 
   useEffect(() => {
     let isActive = true
+    isTransitioning.current = true
 
     async function runPreloader() {
       const startedAt = performance.now()
@@ -54,16 +56,58 @@ function usePreloader() {
 
       setPhase('done')
       setIsVisible(false)
+      isTransitioning.current = false
     }
 
     runPreloader()
 
     return () => {
       isActive = false
+      isTransitioning.current = false
     }
   }, [])
 
-  return { phase, isVisible }
+  const runRouteTransition = useCallback(async ({ beforeCommit, commit }) => {
+    if (isTransitioning.current) {
+      return false
+    }
+
+    isTransitioning.current = true
+
+    try {
+      setPhase('intro')
+      setIsVisible(true)
+
+      await wait(PRELOADER_TIMING.intro)
+      setPhase('split')
+
+      await Promise.all([
+        beforeCommit?.(),
+        wait(PRELOADER_TIMING.split),
+      ])
+
+      commit?.()
+
+      setPhase('exit')
+      await wait(PRELOADER_TIMING.exit)
+
+      setPhase('done')
+      setIsVisible(false)
+
+      return true
+    } catch {
+      setPhase('exit')
+      await wait(PRELOADER_TIMING.exit)
+      setPhase('done')
+      setIsVisible(false)
+
+      return false
+    } finally {
+      isTransitioning.current = false
+    }
+  }, [])
+
+  return { phase, isVisible, runRouteTransition }
 }
 
 export default usePreloader

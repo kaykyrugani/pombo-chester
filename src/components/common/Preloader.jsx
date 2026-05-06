@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import logo from '../../assets/logo/LogoPombo.webp'
+import logo from '../../assets/logo/LogoPombo1.webp'
 import './Preloader.css'
 
 const overlayVariants = {

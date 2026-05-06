@@ -3,11 +3,11 @@ import Preloader from './components/common/Preloader.jsx'
 import usePreloader from './hooks/usePreloader.js'
 
 function App() {
-  const { phase, isVisible } = usePreloader()
+  const { phase, isVisible, runRouteTransition } = usePreloader()
 
   return (
     <>
-      <AppRoutes />
+      <AppRoutes onRouteTransition={runRouteTransition} />
       {isVisible && <Preloader phase={phase} />}
     </>
   )

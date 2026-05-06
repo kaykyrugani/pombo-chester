@@ -1,18 +1,20 @@
 import { lazy, Suspense, useEffect, useState } from 'react'
 import Layout from '../components/layout/Layout.jsx'
 
-const Agenda = lazy(() => import('../pages/Agenda/Agenda.jsx'))
-const Banda = lazy(() => import('../pages/Banda/Banda.jsx'))
-const ContatoMidia = lazy(() => import('../pages/ContatoMidia/ContatoMidia.jsx'))
-const Home = lazy(() => import('../pages/Home/Home.jsx'))
-const NaEstrada = lazy(() => import('../pages/NaEstrada/NaEstrada.jsx'))
+const routeLoaders = {
+  '/': () => import('../pages/Home/Home.jsx'),
+  '/banda': () => import('../pages/Banda/Banda.jsx'),
+  '/agenda': () => import('../pages/Agenda/Agenda.jsx'),
+  '/na-estrada': () => import('../pages/NaEstrada/NaEstrada.jsx'),
+  '/contato': () => import('../pages/ContatoMidia/ContatoMidia.jsx'),
+}
 
 const routes = {
-  '/': Home,
-  '/banda': Banda,
-  '/agenda': Agenda,
-  '/na-estrada': NaEstrada,
-  '/contato': ContatoMidia,
+  '/': lazy(routeLoaders['/']),
+  '/banda': lazy(routeLoaders['/banda']),
+  '/agenda': lazy(routeLoaders['/agenda']),
+  '/na-estrada': lazy(routeLoaders['/na-estrada']),
+  '/contato': lazy(routeLoaders['/contato']),
 }
 
 function normalizePath(pathname) {
@@ -23,12 +25,31 @@ function normalizePath(pathname) {
   return pathname || '/'
 }
 
-function AppRoutes() {
+function AppRoutes({ onRouteTransition }) {
   const [currentPath, setCurrentPath] = useState(() => normalizePath(window.location.pathname))
 
   useEffect(() => {
+    function transitionToPath(nextPath, updateHistory) {
+      const resolvedPath = routes[nextPath] ? nextPath : '/'
+
+      onRouteTransition({
+        beforeCommit: routeLoaders[resolvedPath],
+        commit: () => {
+          updateHistory?.()
+          setCurrentPath(nextPath)
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        },
+      })
+    }
+
     function handlePopState() {
-      setCurrentPath(normalizePath(window.location.pathname))
+      const nextPath = normalizePath(window.location.pathname)
+
+      if (nextPath === currentPath) {
+        return
+      }
+
+      transitionToPath(nextPath)
     }
 
     function handleClick(event) {
@@ -47,14 +68,14 @@ function AppRoutes() {
 
       event.preventDefault()
 
-      if (nextPath === normalizePath(window.location.pathname)) {
+      if (nextPath === currentPath) {
         window.scrollTo({ top: 0, behavior: 'smooth' })
         return
       }
 
-      window.history.pushState({}, '', nextPath)
-      setCurrentPath(nextPath)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      transitionToPath(nextPath, () => {
+        window.history.pushState({}, '', nextPath)
+      })
     }
 
     window.addEventListener('popstate', handlePopState)
@@ -64,9 +85,9 @@ function AppRoutes() {
       window.removeEventListener('popstate', handlePopState)
       document.removeEventListener('click', handleClick)
     }
-  }, [])
+  }, [currentPath, onRouteTransition])
 
-  const Page = routes[currentPath] || Home
+  const Page = routes[currentPath] || routes['/']
 
   return (
     <Layout currentPath={routes[currentPath] ? currentPath : '/'}>
