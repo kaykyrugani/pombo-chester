@@ -25,7 +25,7 @@ function normalizePath(pathname) {
   return pathname || '/'
 }
 
-function AppRoutes({ onRouteTransition }) {
+function AppRoutes({ isPreloaderDone, onRouteTransition }) {
   const [currentPath, setCurrentPath] = useState(() => normalizePath(window.location.pathname))
 
   useEffect(() => {
@@ -92,7 +92,7 @@ function AppRoutes({ onRouteTransition }) {
   return (
     <Layout currentPath={routes[currentPath] ? currentPath : '/'}>
       <Suspense fallback={null}>
-        <Page />
+        <Page isPreloaderDone={isPreloaderDone} />
       </Suspense>
     </Layout>
   )

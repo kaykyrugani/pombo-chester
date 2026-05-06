@@ -6,7 +6,7 @@ import BandPageHero from '../../components/sections/BandPageHero.jsx'
 import BandValues from '../../components/sections/BandValues.jsx'
 import usePageMeta from '../../hooks/usePageMeta.js'
 
-function Banda() {
+function Banda({ isPreloaderDone = true }) {
   usePageMeta(
     'Banda para eventos em MG | Pombo Chester ao vivo',
     'Conheça a Pombo Chester, banda para eventos com música ao vivo, humor e energia. Ideal para festas, eventos corporativos e shows.',
@@ -15,7 +15,7 @@ function Banda() {
 
   return (
     <>
-      <BandPageHero />
+      <BandPageHero canAnimate={isPreloaderDone} />
       <BandIntro />
       <BandValues />
       <BandEventTypes />

@@ -7,7 +7,7 @@ import BookingInfo from '../../components/sections/BookingInfo.jsx'
 import EventTypes from '../../components/sections/EventTypes.jsx'
 import usePageMeta from '../../hooks/usePageMeta.js'
 
-function Agenda() {
+function Agenda({ isPreloaderDone = true }) {
   usePageMeta(
     'Agenda de shows | Pombo Chester banda ao vivo para eventos',
     'Veja a agenda de shows da Pombo Chester e descubra onde assistir ou contratar a banda para eventos com música ao vivo.',
@@ -16,7 +16,7 @@ function Agenda() {
 
   return (
     <>
-      <AgendaPageHero />
+      <AgendaPageHero canAnimate={isPreloaderDone} />
       <AgendaShows />
       <AgendaLocation />
       <AgendaTrust />

@@ -1,3 +1,4 @@
+import { motion, useReducedMotion } from 'framer-motion'
 import SectionTitle from '../ui/SectionTitle.jsx'
 
 const differentials = [
@@ -39,29 +40,64 @@ const differentials = [
   }
 ]
 
+const viewport = { once: true, amount: 0.34, margin: '0px 0px -12% 0px' }
+const easeOut = [0.33, 1, 0.68, 1]
+
+const gridGroup = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.12,
+      staggerChildren: 0.08,
+    },
+  },
+}
+
+const riseIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.62, ease: easeOut },
+  },
+}
+
 function HomeDifferentials() {
+  const shouldReduceMotion = useReducedMotion()
+  const itemVariant = shouldReduceMotion
+    ? { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.2 } } }
+    : riseIn
+
   return (
-    <section className="home-differentials section section-dark" aria-label="Diferenciais da Pombo Chester">
+    <motion.section
+      className="home-differentials section section-dark"
+      aria-label="Diferenciais da Pombo Chester"
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewport}
+    >
       <div className="container">
-        <SectionTitle
-          title="Por que contratar a Pombo Chester para o seu evento?"
-          subtitle=""
-        />
+        <motion.div variants={itemVariant}>
+          <SectionTitle
+            title="Por que contratar a Pombo Chester para o seu evento?"
+            subtitle=""
+          />
+        </motion.div>
         
-        <div className="home-differentials__grid">
+        <motion.div className="home-differentials__grid" variants={gridGroup}>
           {differentials.map((diff) => (
-            <div key={diff.id} className="home-differentials__card dark-feature-card">
+            <motion.div key={diff.id} className="home-differentials__card dark-feature-card" variants={itemVariant}>
               <span className="home-differentials__card-label dark-feature-card__meta">
                 <span className="dark-feature-card__dot" aria-hidden="true" />
                 {diff.label}
               </span>
               <h3 className="home-differentials__card-title dark-feature-card__title">{diff.title}</h3>
               <p className="home-differentials__card-desc dark-feature-card__text">{diff.description}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <AppRoutes onRouteTransition={runRouteTransition} />
+      <AppRoutes isPreloaderDone={!isVisible} onRouteTransition={runRouteTransition} />
       {isVisible && <Preloader phase={phase} />}
     </>
   )

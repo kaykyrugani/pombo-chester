@@ -1,3 +1,4 @@
+import { motion, useReducedMotion } from 'framer-motion'
 import SectionTitle from '../ui/SectionTitle.jsx'
 
 const values = [
@@ -18,32 +19,67 @@ const values = [
   },
 ]
 
+const viewport = { once: true, amount: 0.34, margin: '0px 0px -12% 0px' }
+const easeOut = [0.33, 1, 0.68, 1]
+
+const gridGroup = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.12,
+      staggerChildren: 0.08,
+    },
+  },
+}
+
+const riseIn = {
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.62, ease: easeOut },
+  },
+}
+
 function BandValues() {
+  const shouldReduceMotion = useReducedMotion()
+  const itemVariant = shouldReduceMotion
+    ? { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.2 } } }
+    : riseIn
+
   return (
-    <section className="band-values section section-dark" aria-label="Proposta artística">
+    <motion.section
+      className="band-values section section-dark"
+      aria-label="Proposta artística"
+      initial="hidden"
+      whileInView="visible"
+      viewport={viewport}
+    >
       <div className="container">
-        <SectionTitle
-          eyebrow="Proposta"
-          title="O que faz da Pombo Chester a banda ideal para o seu evento"
-          subtitle="Três pilares que garantem um show completo para eventos ao vivo."
-        />
+        <motion.div variants={itemVariant}>
+          <SectionTitle
+            eyebrow="Proposta"
+            title="O que faz da Pombo Chester a banda ideal para o seu evento"
+            subtitle="Três pilares que garantem um show completo para eventos ao vivo."
+          />
+        </motion.div>
 
         <div className="dark-feature-panel">
-          <div className="band-values__grid">
+          <motion.div className="band-values__grid" variants={gridGroup}>
             {values.map((value) => (
-              <article className="dark-feature-card band-value-card" key={value.title}>
+              <motion.article className="dark-feature-card band-value-card" key={value.title} variants={itemVariant}>
                 <div className="dark-feature-card__meta">
                   <span className="dark-feature-card__dot" aria-hidden="true" />
                   <span className="dark-feature-card__label">{value.label}</span>
                 </div>
                 <h3 className="dark-feature-card__title">{value.title}</h3>
                 <p className="dark-feature-card__text">{value.text}</p>
-              </article>
+              </motion.article>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

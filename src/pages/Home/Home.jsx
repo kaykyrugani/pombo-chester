@@ -7,7 +7,7 @@ import InstagramFeed from '../../components/sections/InstagramFeed.jsx'
 import HomeFinalCTA from '../../components/sections/HomeFinalCTA.jsx'
 import usePageMeta from '../../hooks/usePageMeta.js'
 
-function Home() {
+function Home({ isPreloaderDone = true }) {
   usePageMeta(
     'Banda para eventos ao vivo | Contratar banda Pombo Chester',
     'Contrate banda para eventos com música ao vivo, humor e energia. A Pombo Chester atende festas, eventos corporativos e shows em todo o Brasil.',
@@ -16,7 +16,7 @@ function Home() {
 
   return (
     <>
-      <HomeHero />
+      <HomeHero canAnimate={isPreloaderDone} />
       <HomeValueProposition />
       <HomeDifferentials />
       <HomeNextShows />

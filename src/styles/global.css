@@ -577,6 +577,10 @@ ul {
   margin-inline: auto;
 }
 
+.home-hero__title-line {
+  display: block;
+}
+
 .home-hero__content {
   align-items: center;
   display: grid;
@@ -1101,6 +1105,13 @@ ul {
   max-width: 46rem;
 }
 
+.home-value-prop__pigeon-motion {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
 .home-value-prop__pigeon {
   opacity: 0.08;
   right: clamp(-5rem, -8vw, -2rem);
@@ -1239,6 +1250,11 @@ ul {
   font-size: clamp(1.05rem, 2.5vw, 1.25rem);
   font-weight: 700;
   max-width: 42rem;
+}
+
+.band-page-hero__title-line,
+.band-intro__title-line {
+  display: block;
 }
 
 .band-page-hero__actions {
@@ -1753,6 +1769,11 @@ ul {
   max-width: 42rem;
 }
 
+.road-page-hero__title-line,
+.road-intro__title-line {
+  display: block;
+}
+
 .road-page-hero__actions,
 .road-cta__actions {
   display: flex;
@@ -1869,6 +1890,13 @@ ul {
   font-weight: 800;
   line-height: 1.5;
   margin: 0;
+}
+
+.road-intro__pigeon-motion {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
 }
 
 .venues-showcase__note {
@@ -2260,6 +2288,11 @@ ul {
   font-size: clamp(1.05rem, 2.5vw, 1.25rem);
   font-weight: 700;
   max-width: 42rem;
+}
+
+.agenda-page-hero__title-line,
+.agenda-location__title-line {
+  display: block;
 }
 
 .agenda-page-hero__actions,
@@ -2840,6 +2873,12 @@ ul {
   max-width: 42rem;
 }
 
+.contact-media-hero__title-line,
+.contact-booking-prompt__title-line,
+.social-contact__title-line {
+  display: block;
+}
+
 .contact-media-hero__actions,
 .contact-media-cta__actions {
   display: flex;
@@ -3006,6 +3045,13 @@ ul {
   outline: 3px solid var(--color-accent);
   outline-offset: 3px;
   transform: translate(2px, 2px);
+}
+
+.social-contact__pigeon-motion {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
 }
 
 .contact-instagram {
