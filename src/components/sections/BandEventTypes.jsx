@@ -35,7 +35,7 @@ const eventTypes = [
   }
 ]
 
-const viewport = { once: true, amount: 0.34, margin: '0px 0px -12% 0px' }
+const viewport = { once: true, amount: 'some', margin: '0px 0px -8% 0px' }
 const easeOut = [0.33, 1, 0.68, 1]
 
 const gridGroup = {
