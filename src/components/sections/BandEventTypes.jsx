@@ -107,6 +107,10 @@ function BandEventTypes() {
         alt="Pombo Chester decorativo"
         className="brand-pigeon band-event-types__pigeon"
         aria-hidden="true"
+        width="512"
+        height="512"
+        loading="lazy"
+        decoding="async"
         variants={pigeonVariant}
       />
     </motion.section>

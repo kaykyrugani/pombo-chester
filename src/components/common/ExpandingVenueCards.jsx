@@ -1,6 +1,7 @@
 import { memo, useCallback, useEffect, useMemo, useState } from 'react'
 
 const MOBILE_BREAKPOINT = 770
+const MOBILE_QUERY = `(max-width: ${MOBILE_BREAKPOINT}px)`
 
 const ExpandingVenueCard = memo(function ExpandingVenueCard({
   index,
@@ -48,18 +49,20 @@ const ExpandingVenueCard = memo(function ExpandingVenueCard({
 function ExpandingVenueCards({ items, defaultActiveIndex = 0 }) {
   const [activeIndex, setActiveIndex] = useState(defaultActiveIndex)
   const [isMobile, setIsMobile] = useState(() => (
-    typeof window !== 'undefined' ? window.innerWidth <= MOBILE_BREAKPOINT : false
+    typeof window !== 'undefined' ? window.matchMedia(MOBILE_QUERY).matches : false
   ))
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT)
+    const mobileMedia = window.matchMedia(MOBILE_QUERY)
+
+    const handleMediaChange = () => {
+      setIsMobile(mobileMedia.matches)
     }
 
-    handleResize()
-    window.addEventListener('resize', handleResize)
+    handleMediaChange()
+    mobileMedia.addEventListener('change', handleMediaChange)
 
-    return () => window.removeEventListener('resize', handleResize)
+    return () => mobileMedia.removeEventListener('change', handleMediaChange)
   }, [])
 
   const handleActivate = useCallback((index) => {

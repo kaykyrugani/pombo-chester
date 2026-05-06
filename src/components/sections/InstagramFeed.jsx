@@ -1,6 +1,7 @@
 import Button from '../ui/Button.jsx'
 import { BrandPigeon } from '../ui/brand-pigeon.tsx'
 import SectionTitle from '../ui/SectionTitle.jsx'
+import { useEffect, useRef, useState } from 'react'
 import palcoAcesso from '../../assets/images/videos/Palcoacessocompress.mp4'
 import antesDaEntrada from '../../assets/images/videos/Antesdaentradacompress.mp4'
 import festaAcontecendo from '../../assets/images/videos/Festaacontecendocompress.mp4'
@@ -27,17 +28,87 @@ const instagramVideos = [
   },
 ]
 
-function handleVideoPlay(event) {
-  const playRequest = event.currentTarget.play()
+function handleVideoReset(event) {
+  event.currentTarget.dataset.pendingPlay = 'false'
+  event.currentTarget.pause()
+  event.currentTarget.currentTime = 0
+}
+
+function playVideo(video) {
+  const playRequest = video.play()
 
   if (playRequest) {
     playRequest.catch(() => {})
   }
 }
 
-function handleVideoReset(event) {
-  event.currentTarget.pause()
-  event.currentTarget.currentTime = 0
+function InstagramVideo({ src, title }) {
+  const videoRef = useRef(null)
+  const [shouldLoad, setShouldLoad] = useState(false)
+
+  useEffect(() => {
+    const video = videoRef.current
+
+    if (!video || shouldLoad) {
+      return undefined
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      return undefined
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        setShouldLoad(true)
+        observer.disconnect()
+      }
+    }, {
+      rootMargin: '320px 0px',
+      threshold: 0.01,
+    })
+
+    observer.observe(video)
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [shouldLoad])
+
+  function handleVideoPlay(event) {
+    event.currentTarget.dataset.pendingPlay = 'true'
+
+    if (!shouldLoad) {
+      setShouldLoad(true)
+      return
+    }
+
+    playVideo(event.currentTarget)
+  }
+
+  function handleLoadedData(event) {
+    if (event.currentTarget.dataset.pendingPlay === 'true') {
+      playVideo(event.currentTarget)
+    }
+  }
+
+  return (
+    <>
+      <video
+        ref={videoRef}
+        className="instagram-card__video"
+        src={shouldLoad ? src : undefined}
+        aria-label={title}
+        playsInline
+        muted
+        loop
+        preload={shouldLoad ? 'metadata' : 'none'}
+        onLoadedData={handleLoadedData}
+        onMouseEnter={handleVideoPlay}
+        onMouseLeave={handleVideoReset}
+      />
+      {!shouldLoad && <span className="instagram-card__play" aria-hidden="true" />}
+    </>
+  )
 }
 
 function InstagramFeed() {
@@ -60,15 +131,7 @@ function InstagramFeed() {
             <article className="instagram-card" key={item.id}>
               <span className="instagram-card__label">{item.label}</span>
               <div className="instagram-card__frame instagram-card__media" aria-hidden="true">
-                <video
-                  className="instagram-card__video"
-                  src={item.video}
-                  playsInline
-                  loop
-                  preload="metadata"
-                  onMouseEnter={handleVideoPlay}
-                  onMouseLeave={handleVideoReset}
-                />
+                <InstagramVideo src={item.video} title={item.title} />
               </div>
               <h3>{item.title}</h3>
             </article>

@@ -5,6 +5,8 @@ const AnimatedFooterWord = memo(function AnimatedFooterWord() {
     <svg
       className="footer-word"
       viewBox="0 0 1000 230"
+      width="1000"
+      height="230"
       role="img"
       aria-label="POMBO"
       preserveAspectRatio="xMidYMid meet"

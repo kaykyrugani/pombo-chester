@@ -7,10 +7,10 @@ import membro4 from '../../assets/images/band/membro4.webp'
 import officialLinks from '../../data/officialLinks.js'
 
 const members = [
-  { name: 'Integrante da Pombo Chester', image: membro1 },
-  { name: 'Integrante da Pombo Chester', image: membro2 },
-  { name: 'Integrante da Pombo Chester', image: membro3 },
-  { name: 'Integrante da Pombo Chester', image: membro4 },
+  { name: 'Integrante da Pombo Chester', image: membro1, width: 390, height: 562 },
+  { name: 'Integrante da Pombo Chester', image: membro2, width: 377, height: 413 },
+  { name: 'Integrante da Pombo Chester', image: membro3, width: 357, height: 409 },
+  { name: 'Integrante da Pombo Chester', image: membro4, width: 446, height: 354 },
 ]
 
 const titleLines = [
@@ -125,7 +125,13 @@ function HomeHero({ canAnimate = true }) {
               key={`${member.name}-${index}`}
               variants={getMemberVariants(index, shouldReduceMotion)}
             >
-              <img src={member.image} alt={`${member.name} ${index + 1}`} decoding="async" />
+              <img
+                src={member.image}
+                alt={`${member.name} ${index + 1}`}
+                width={member.width}
+                height={member.height}
+                decoding="async"
+              />
             </motion.figure>
           ))}
         </motion.div>

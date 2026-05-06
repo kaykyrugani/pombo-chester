@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
 const PRELOADER_TIMING = {
-  intro: 850,
-  split: 1150,
-  minimumVisible: 2800,
-  exit: 900,
+  intro: 420,
+  split: 620,
+  minimumVisible: 1150,
+  exit: 560,
+  contentReadyFallback: 1800,
 }
 
 function wait(milliseconds) {
@@ -13,20 +14,19 @@ function wait(milliseconds) {
   })
 }
 
-function waitForWindowLoad() {
-  if (document.readyState === 'complete') {
-    return Promise.resolve()
-  }
-
-  return new Promise((resolve) => {
-    window.addEventListener('load', resolve, { once: true })
-  })
-}
-
 function usePreloader() {
   const [phase, setPhase] = useState('intro')
   const [isVisible, setIsVisible] = useState(true)
+  const contentReady = useRef(false)
   const isTransitioning = useRef(false)
+  const [{ promise: contentReadyPromise, resolve: resolveContentReady }] = useState(() => {
+    let resolveContentReadyPromise
+    const promise = new Promise((resolve) => {
+      resolveContentReadyPromise = resolve
+    })
+
+    return { promise, resolve: resolveContentReadyPromise }
+  })
 
   useEffect(() => {
     let isActive = true
@@ -34,7 +34,10 @@ function usePreloader() {
 
     async function runPreloader() {
       const startedAt = performance.now()
-      const appReady = waitForWindowLoad()
+      const appReady = Promise.race([
+        contentReadyPromise,
+        wait(PRELOADER_TIMING.contentReadyFallback),
+      ])
 
       await wait(PRELOADER_TIMING.intro)
       if (!isActive) return
@@ -65,7 +68,16 @@ function usePreloader() {
       isActive = false
       isTransitioning.current = false
     }
-  }, [])
+  }, [contentReadyPromise])
+
+  const markContentReady = useCallback(() => {
+    if (contentReady.current) {
+      return
+    }
+
+    contentReady.current = true
+    resolveContentReady()
+  }, [resolveContentReady])
 
   const runRouteTransition = useCallback(async ({ beforeCommit, commit }) => {
     if (isTransitioning.current) {
@@ -107,7 +119,7 @@ function usePreloader() {
     }
   }, [])
 
-  return { phase, isVisible, runRouteTransition }
+  return { phase, isVisible, markContentReady, runRouteTransition }
 }
 
 export default usePreloader

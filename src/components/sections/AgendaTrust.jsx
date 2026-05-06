@@ -94,7 +94,10 @@ function AgendaTrust() {
         src={pomboLogo}
         alt=""
         aria-hidden="true"
+        width="512"
+        height="512"
         loading="lazy"
+        decoding="async"
         variants={pigeonVariant}
       />
     </motion.section>

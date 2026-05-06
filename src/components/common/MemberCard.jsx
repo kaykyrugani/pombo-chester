@@ -34,7 +34,14 @@ function MemberCard({ member, positionStyle, isFront = false, onShuffle }) {
     >
       <div className="member-card__media">
         {member.image ? (
-          <img src={member.image} alt={`Foto de ${member.name}`} loading="lazy" decoding="async" />
+          <img
+            src={member.image}
+            alt={`Foto de ${member.name}`}
+            width="900"
+            height="1125"
+            loading="lazy"
+            decoding="async"
+          />
         ) : (
           <span>{getInitials(member.name) || 'Foto em breve'}</span>
         )}

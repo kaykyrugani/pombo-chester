@@ -53,6 +53,8 @@ function ContactInstagramHighlights() {
                   className="instagram-card__image"
                   src={post.image}
                   alt={post.title}
+                  width="900"
+                  height="1125"
                   loading="lazy"
                   decoding="async"
                 />

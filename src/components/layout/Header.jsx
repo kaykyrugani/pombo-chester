@@ -50,7 +50,14 @@ function Header({ currentPath = '/' }) {
     <header className="site-header">
       <div className="container site-header__inner">
         <a className="brand" href="/" aria-label="Pombo Chester - Home" onClick={closeMenu}>
-          <img src={logoPombo} alt="Pombo Chester Logo" className="brand__mark" decoding="async" />
+          <img
+            src={logoPombo}
+            alt="Pombo Chester Logo"
+            className="brand__mark"
+            width="150"
+            height="150"
+            decoding="async"
+          />
           <span className="brand__name">Pombo Chester</span>
         </a>
 
