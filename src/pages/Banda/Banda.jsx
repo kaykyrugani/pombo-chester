@@ -2,6 +2,7 @@ import BandCTA from '../../components/sections/BandCTA.jsx'
 import BandEventTypes from '../../components/sections/BandEventTypes.jsx'
 import BandIntro from '../../components/sections/BandIntro.jsx'
 import BandMembers from '../../components/sections/BandMembers.jsx'
+import BandMemberStories from '../../components/sections/band/BandMemberStories.jsx'
 import BandPageHero from '../../components/sections/BandPageHero.jsx'
 import BandValues from '../../components/sections/BandValues.jsx'
 import usePageMeta from '../../hooks/usePageMeta.js'
@@ -17,9 +18,10 @@ function Banda({ isPreloaderDone = true }) {
     <>
       <BandPageHero canAnimate={isPreloaderDone} />
       <BandIntro />
+      <BandMembers />
       <BandValues />
       <BandEventTypes />
-      <BandMembers />
+      <BandMemberStories />
       <BandCTA />
     </>
   )

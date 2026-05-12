@@ -1523,6 +1523,200 @@ ul {
   font-weight: 700;
 }
 
+.band-member-stories {
+  background:
+    linear-gradient(135deg, rgba(6, 56, 38, 0.97), rgba(11, 93, 59, 0.9)),
+    var(--color-primary-dark);
+  border-bottom: var(--border-strong);
+  overflow: hidden;
+  position: relative;
+}
+
+.band-member-stories::before {
+  background:
+    linear-gradient(90deg, rgba(244, 197, 66, 0.18) 1px, transparent 1px),
+    linear-gradient(rgba(244, 197, 66, 0.14) 1px, transparent 1px);
+  background-size: 1.75rem 1.75rem;
+  content: '';
+  inset: 0;
+  opacity: 0.24;
+  position: absolute;
+}
+
+.band-member-stories__container {
+  display: grid;
+  gap: var(--space-8);
+  position: relative;
+  z-index: 1;
+}
+
+.band-member-stories__intro {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 52rem;
+}
+
+.band-member-stories__intro p {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+  font-weight: 700;
+  line-height: 1.5;
+  max-width: 43rem;
+}
+
+.band-member-stories__layout {
+  align-items: center;
+  display: grid;
+  gap: var(--space-8);
+}
+
+.band-member-stories__media {
+  display: grid;
+  justify-items: center;
+  position: relative;
+}
+
+.band-member-stories__image-frame {
+  animation: bandMemberImageIn 500ms ease both;
+  aspect-ratio: 4 / 5;
+  background: var(--color-black);
+  border: 2px solid var(--color-black);
+  box-shadow: 8px 8px 0 rgba(17, 17, 17, 0.82);
+  margin: 0;
+  max-width: 25rem;
+  overflow: hidden;
+  transform: rotate(-0.7deg);
+  transition: all 0.5s ease;
+  width: min(100%, 22rem);
+}
+
+.band-member-stories__image {
+  filter: saturate(1.05) contrast(1.04);
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+  width: 100%;
+}
+
+.band-member-stories__identity {
+  animation: bandMemberNameIn 500ms ease both;
+  display: grid;
+  gap: var(--space-1);
+  max-width: min(100%, 24rem);
+  transition: all 0.5s ease;
+}
+
+.band-member-stories__role {
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.band-member-stories__name {
+  color: var(--color-white);
+  font-size: clamp(3rem, 13vw, 5.6rem);
+  line-height: 0.9;
+  text-shadow: 4px 4px 0 var(--color-black);
+}
+
+.band-member-stories__content {
+  animation: bandMemberTextIn 500ms ease both;
+  display: grid;
+  gap: var(--space-6);
+  justify-items: start;
+  transition: all 0.5s ease;
+}
+
+.band-member-stories__text {
+  color: var(--color-white);
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  font-weight: 650;
+  line-height: 1.55;
+  max-width: 38.75rem;
+  padding-right: var(--space-2);
+  white-space: pre-line;
+}
+
+.band-member-stories__controls {
+  align-items: center;
+  display: flex;
+  gap: var(--space-4);
+}
+
+.band-member-stories__controls span {
+  color: var(--color-accent);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.band-member-stories__button {
+  align-items: center;
+  aspect-ratio: 1;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  color: var(--color-white);
+  display: inline-flex;
+  font-size: 1.45rem;
+  font-weight: 900;
+  justify-content: center;
+  line-height: 1;
+  transition: all 0.5s ease;
+  width: 3.25rem;
+}
+
+.band-member-stories__button:hover,
+.band-member-stories__button:focus-visible {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-black);
+  outline: 3px solid rgba(244, 197, 66, 0.26);
+  outline-offset: 4px;
+  transform: translateY(-2px);
+}
+
+@keyframes bandMemberImageIn {
+  from {
+    filter: blur(0.2rem);
+    opacity: 0;
+    transform: scale(0.96) rotate(-0.7deg);
+  }
+
+  to {
+    filter: blur(0);
+    opacity: 1;
+    transform: scale(1) rotate(-0.7deg);
+  }
+}
+
+@keyframes bandMemberTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bandMemberNameIn {
+  from {
+    opacity: 0;
+    translate: 1.2rem 0;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
 .band-cta {
   background:
     linear-gradient(135deg, rgba(6, 56, 38, 0.96), rgba(11, 93, 59, 0.9)),
@@ -3320,6 +3514,61 @@ ul {
     max-width: 22rem;
     width: min(32vw, 22rem);
   }
+
+  .band-member-stories__container {
+    gap: var(--space-10);
+  }
+
+  .band-member-stories__layout {
+    align-items: center;
+    gap: clamp(3rem, 6vw, 6rem);
+    grid-template-columns: minmax(17.5rem, 26.25rem) minmax(0, 1fr);
+  }
+
+  .band-member-stories__media {
+    justify-items: start;
+    padding-block: 0;
+  }
+
+  .band-member-stories__image-frame {
+    max-width: 26.25rem;
+    width: 100%;
+  }
+
+  .band-member-stories__identity {
+    max-width: 42rem;
+    position: static;
+    text-align: left;
+    transform: none;
+    width: auto;
+  }
+
+  .band-member-stories__name {
+    font-size: clamp(3.5rem, 6vw, 6rem);
+  }
+
+  .band-member-stories__content {
+    gap: var(--space-5);
+    padding-left: var(--space-8);
+  }
+
+  .band-member-stories__intro {
+    margin-bottom: clamp(1.5rem, 4vw, 3.5rem);
+  }
+
+  .band-member-stories__role {
+    display: inline-block;
+    margin-bottom: var(--space-2);
+  }
+
+  .band-member-stories__text {
+    font-size: clamp(0.95rem, 1vw, 1.05rem);
+    line-height: 1.6;
+    max-height: 23.75rem;
+    max-width: 42.5rem;
+    overflow-y: auto;
+    padding-right: var(--space-3);
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -3457,6 +3706,16 @@ ul {
     padding: var(--space-4);
   }
 
+  .band-member-stories__text {
+    font-size: 0.95rem;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .band-member-stories__button {
+    width: 3rem;
+  }
+
   .expanding-venue-card,
   .expanding-venue-card.is-active {
     min-height: 19rem;
@@ -3536,11 +3795,22 @@ ul {
   .home-hero__benefits li,
   .home-differentials__card,
   .agenda-location .button,
-  .agenda-trust__card {
+  .agenda-trust__card,
+  .band-member-stories__image,
+  .band-member-stories__image-frame,
+  .band-member-stories__identity,
+  .band-member-stories__content,
+  .band-member-stories__button {
     transition: none;
   }
 
   .footer-word__text {
+    animation: none;
+  }
+
+  .band-member-stories__image-frame,
+  .band-member-stories__identity,
+  .band-member-stories__content {
     animation: none;
   }
 }
