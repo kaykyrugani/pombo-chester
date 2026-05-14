@@ -32,7 +32,7 @@ const roadVideos = [
   },
 ]
 
-function playVideo(video) {
+function requestVideoPlay(video) {
   const playRequest = video.play()
 
   if (playRequest) {
@@ -40,20 +40,43 @@ function playVideo(video) {
   }
 }
 
+function playVideoPreview(video) {
+  video.dataset.userPlaying = 'false'
+  video.muted = true
+  requestVideoPlay(video)
+}
+
+function playVideoWithSound(video) {
+  video.dataset.userPlaying = 'true'
+  video.muted = false
+  video.volume = 1
+  requestVideoPlay(video)
+}
+
 function resetVideo(video) {
+  video.dataset.userPlaying = 'false'
   video.pause()
   video.currentTime = 0
+  video.muted = true
 }
 
 function handleVideoClick(event) {
   const video = event.currentTarget
 
-  if (video.paused) {
-    playVideo(video)
+  if (video.dataset.userPlaying === 'true' && !video.paused) {
+    resetVideo(video)
     return
   }
 
-  video.pause()
+  playVideoWithSound(video)
+}
+
+function handleVideoLeave(event) {
+  if (event.currentTarget.dataset.userPlaying === 'true') {
+    return
+  }
+
+  resetVideo(event.currentTarget)
 }
 
 function RoadVideos() {
@@ -77,14 +100,13 @@ function RoadVideos() {
               <div className="road-video-card__media">
                 <video
                   src={item.video}
-                  muted
                   playsInline
                   preload="metadata"
                   className="road-video-card__video"
                   aria-label={`${item.title}: ${item.description}`}
                   onClick={handleVideoClick}
-                  onMouseEnter={(event) => playVideo(event.currentTarget)}
-                  onMouseLeave={(event) => resetVideo(event.currentTarget)}
+                  onMouseEnter={(event) => playVideoPreview(event.currentTarget)}
+                  onMouseLeave={handleVideoLeave}
                 />
                 <span className="road-video-card__play" aria-hidden="true" />
               </div>

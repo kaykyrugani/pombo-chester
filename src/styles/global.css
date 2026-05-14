@@ -975,6 +975,7 @@ ul {
 }
 
 .instagram-card__video {
+  cursor: pointer;
   display: block;
   height: 100%;
   object-fit: cover;
@@ -987,6 +988,7 @@ ul {
   border-top: 1.15rem solid transparent;
   filter: drop-shadow(2px 2px 0 var(--color-black));
   height: 0;
+  pointer-events: none;
   width: 0;
 }
 

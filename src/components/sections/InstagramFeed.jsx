@@ -28,18 +28,45 @@ const instagramVideos = [
   },
 ]
 
-function handleVideoReset(event) {
-  event.currentTarget.dataset.pendingPlay = 'false'
-  event.currentTarget.pause()
-  event.currentTarget.currentTime = 0
-}
-
-function playVideo(video) {
+function requestVideoPlay(video) {
   const playRequest = video.play()
 
   if (playRequest) {
     playRequest.catch(() => {})
   }
+}
+
+function playVideoPreview(video) {
+  video.dataset.userPlaying = 'false'
+  video.muted = true
+  video.defaultMuted = true
+  requestVideoPlay(video)
+}
+
+function playVideoWithSound(video) {
+  video.dataset.userPlaying = 'true'
+  video.defaultMuted = false
+  video.muted = false
+  video.removeAttribute('muted')
+  video.volume = 1
+  requestVideoPlay(video)
+}
+
+function resetVideo(video) {
+  video.dataset.pendingPlay = 'false'
+  video.dataset.userPlaying = 'false'
+  video.pause()
+  video.currentTime = 0
+  video.muted = true
+  video.defaultMuted = true
+}
+
+function handleVideoReset(event) {
+  if (event.currentTarget.dataset.userPlaying === 'true') {
+    return
+  }
+
+  resetVideo(event.currentTarget)
 }
 
 function InstagramVideo({ src, title }) {
@@ -74,20 +101,51 @@ function InstagramVideo({ src, title }) {
     }
   }, [shouldLoad])
 
-  function handleVideoPlay(event) {
-    event.currentTarget.dataset.pendingPlay = 'true'
+  function handleVideoPreview(event) {
+    const video = event.currentTarget
+
+    video.dataset.pendingPlay = 'preview'
 
     if (!shouldLoad) {
       setShouldLoad(true)
+      video.src = src
+      video.load()
+      playVideoPreview(video)
       return
     }
 
-    playVideo(event.currentTarget)
+    playVideoPreview(video)
+  }
+
+  function handleVideoClick(event) {
+    const video = event.currentTarget
+
+    video.dataset.pendingPlay = 'sound'
+
+    if (!shouldLoad) {
+      setShouldLoad(true)
+      video.src = src
+      video.load()
+      playVideoWithSound(video)
+      return
+    }
+
+    if (video.dataset.userPlaying === 'true' && !video.paused) {
+      resetVideo(video)
+      return
+    }
+
+    playVideoWithSound(video)
   }
 
   function handleLoadedData(event) {
-    if (event.currentTarget.dataset.pendingPlay === 'true') {
-      playVideo(event.currentTarget)
+    if (event.currentTarget.dataset.pendingPlay === 'sound') {
+      playVideoWithSound(event.currentTarget)
+      return
+    }
+
+    if (event.currentTarget.dataset.pendingPlay === 'preview') {
+      playVideoPreview(event.currentTarget)
     }
   }
 
@@ -99,11 +157,11 @@ function InstagramVideo({ src, title }) {
         src={shouldLoad ? src : undefined}
         aria-label={title}
         playsInline
-        muted
         loop
         preload={shouldLoad ? 'metadata' : 'none'}
+        onClick={handleVideoClick}
         onLoadedData={handleLoadedData}
-        onMouseEnter={handleVideoPlay}
+        onMouseEnter={handleVideoPreview}
         onMouseLeave={handleVideoReset}
       />
       {!shouldLoad && <span className="instagram-card__play" aria-hidden="true" />}
@@ -130,7 +188,7 @@ function InstagramFeed() {
           {instagramVideos.map((item) => (
             <article className="instagram-card" key={item.id}>
               <span className="instagram-card__label">{item.label}</span>
-              <div className="instagram-card__frame instagram-card__media" aria-hidden="true">
+              <div className="instagram-card__frame instagram-card__media">
                 <InstagramVideo src={item.video} title={item.title} />
               </div>
               <h3>{item.title}</h3>
