@@ -1,6 +1,7 @@
 import HomeHero from '../../components/sections/HomeHero.jsx'
 import HomeValueProposition from '../../components/sections/HomeValueProposition.jsx'
 import HomeDifferentials from '../../components/sections/HomeDifferentials.jsx'
+import HomeEventGallery from '../../components/sections/HomeEventGallery.jsx'
 import HomeNextShows from '../../components/sections/HomeNextShows.jsx'
 import SpotifyEmbed from '../../components/sections/SpotifyEmbed.jsx'
 import InstagramFeed from '../../components/sections/InstagramFeed.jsx'
@@ -17,8 +18,9 @@ function Home({ isPreloaderDone = true }) {
   return (
     <>
       <HomeHero canAnimate={isPreloaderDone} />
-      <HomeValueProposition />
       <HomeDifferentials />
+      <HomeEventGallery />
+      <HomeValueProposition />
       <HomeNextShows />
       <SpotifyEmbed />
       <InstagramFeed />
