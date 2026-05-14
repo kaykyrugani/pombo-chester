@@ -2,6 +2,7 @@ import RoadCTA from '../../components/sections/RoadCTA.jsx'
 import RoadHighlights from '../../components/sections/RoadHighlights.jsx'
 import RoadIntro from '../../components/sections/RoadIntro.jsx'
 import RoadPageHero from '../../components/sections/RoadPageHero.jsx'
+import RoadVideos from '../../components/sections/RoadVideos.jsx'
 import VenuesShowcase from '../../components/sections/VenuesShowcase.jsx'
 import usePageMeta from '../../hooks/usePageMeta.js'
 
@@ -18,6 +19,7 @@ function NaEstrada({ isPreloaderDone = true }) {
       <RoadIntro />
       <VenuesShowcase />
       <RoadHighlights />
+      <RoadVideos />
       <RoadCTA />
     </>
   )
