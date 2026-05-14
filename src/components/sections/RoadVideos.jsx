@@ -2,7 +2,7 @@ import SectionTitle from '../ui/SectionTitle.jsx'
 import Button from '../ui/Button.jsx'
 import officialLinks from '../../data/officialLinks.js'
 import botecoDiretoria from '../../assets/images/videos/Botecodiretoria.mp4'
-import casamentoGuaxupe from '../../assets/images/videos/CasamentoGuaxupe.mp4'
+import casamentoGuaxupe from '../../assets/images/videos/Casamentoguaxupe.mp4'
 import unigames from '../../assets/images/videos/Unigames.mp4'
 
 const roadVideos = [
@@ -19,7 +19,7 @@ const roadVideos = [
     label: 'Casamento Guaxupé',
     title: 'Casamento Guaxupé',
     description:
-      'Casasmento em Guaxupé, com a Pombo Chester animando a festa e criando uma atmosfera de alegria e celebração.',
+      'Casamento em Guaxupé, com a Pombo Chester animando a festa e criando uma atmosfera de alegria e celebração.',
     video: casamentoGuaxupe,
   },
   {
