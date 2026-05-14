@@ -1,5 +1,6 @@
 import SectionTitle from '../ui/SectionTitle.jsx'
 import Button from '../ui/Button.jsx'
+import { useRef, useState } from 'react'
 import officialLinks from '../../data/officialLinks.js'
 import botecoDiretoria from '../../assets/images/videos/Botecodiretoria.mp4'
 import casamentoGuaxupe from '../../assets/images/videos/Casamentoguaxupe.mp4'
@@ -32,54 +33,43 @@ const roadVideos = [
   },
 ]
 
-function requestVideoPlay(video) {
-  const playRequest = video.play()
-
-  if (playRequest) {
-    playRequest.catch(() => {})
-  }
-}
-
-function playVideoPreview(video) {
-  video.dataset.userPlaying = 'false'
-  video.muted = true
-  requestVideoPlay(video)
-}
-
-function playVideoWithSound(video) {
-  video.dataset.userPlaying = 'true'
-  video.muted = false
-  video.volume = 1
-  requestVideoPlay(video)
-}
-
-function resetVideo(video) {
-  video.dataset.userPlaying = 'false'
-  video.pause()
-  video.currentTime = 0
-  video.muted = true
-}
-
-function handleVideoClick(event) {
-  const video = event.currentTarget
-
-  if (video.dataset.userPlaying === 'true' && !video.paused) {
-    resetVideo(video)
-    return
-  }
-
-  playVideoWithSound(video)
-}
-
-function handleVideoLeave(event) {
-  if (event.currentTarget.dataset.userPlaying === 'true') {
-    return
-  }
-
-  resetVideo(event.currentTarget)
-}
-
 function RoadVideos() {
+  const videoRefs = useRef([])
+  const [activeVideoId, setActiveVideoId] = useState(null)
+
+  async function handleVideoClick(index) {
+    const clickedVideo = videoRefs.current[index]
+
+    if (!clickedVideo) {
+      return
+    }
+
+    videoRefs.current.forEach((video, videoIndex) => {
+      if (!video || videoIndex === index) {
+        return
+      }
+
+      video.pause()
+      video.currentTime = 0
+    })
+
+    if (activeVideoId === index && !clickedVideo.paused) {
+      clickedVideo.pause()
+      setActiveVideoId(null)
+      return
+    }
+
+    try {
+      clickedVideo.muted = false
+      clickedVideo.volume = 1
+      await clickedVideo.play()
+      setActiveVideoId(index)
+    } catch (error) {
+      console.warn('Não foi possível reproduzir o vídeo:', error)
+      setActiveVideoId(null)
+    }
+  }
+
   return (
     <section className="road-videos section section-light" aria-label="Vídeos da Pombo Chester ao vivo">
       <div className="container">
@@ -97,18 +87,32 @@ function RoadVideos() {
               className={`road-video-card${index === 0 ? ' road-video-card--featured' : ''}`}
               key={item.id}
             >
-              <div className="road-video-card__media">
+              <div className="road-video-card__media" onClick={() => handleVideoClick(index)}>
                 <video
+                  ref={(element) => {
+                    videoRefs.current[index] = element
+                  }}
                   src={item.video}
+                  controls={false}
+                  muted={false}
                   playsInline
                   preload="metadata"
                   className="road-video-card__video"
                   aria-label={`${item.title}: ${item.description}`}
-                  onClick={handleVideoClick}
-                  onMouseEnter={(event) => playVideoPreview(event.currentTarget)}
-                  onMouseLeave={handleVideoLeave}
+                  onEnded={(event) => {
+                    event.currentTarget.currentTime = 0
+                    setActiveVideoId(null)
+                  }}
                 />
-                <span className="road-video-card__play" aria-hidden="true" />
+                <button
+                  type="button"
+                  className={`video-play-button${activeVideoId === index ? ' is-hidden' : ''}`}
+                  aria-label={`Reproduzir vídeo: ${item.title}`}
+                  aria-hidden={activeVideoId === index}
+                  tabIndex={activeVideoId === index ? -1 : 0}
+                >
+                  <span aria-hidden="true">▶</span>
+                </button>
               </div>
 
               <div className="road-video-card__content">
