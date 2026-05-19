@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import caboVerdeImage from '../../assets/images/events/caboverde.webp'
 import formaturaMuzaImage from '../../assets/images/events/formatura3muza.webp'
@@ -55,6 +56,33 @@ const staggerGroup = {
   },
 }
 
+function useIsMobileViewport() {
+  const [isMobileViewport, setIsMobileViewport] = useState(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 759px)')
+    const updateViewport = () => setIsMobileViewport(mediaQuery.matches)
+
+    updateViewport()
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', updateViewport)
+    } else {
+      mediaQuery.addListener(updateViewport)
+    }
+
+    return () => {
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener('change', updateViewport)
+      } else {
+        mediaQuery.removeListener(updateViewport)
+      }
+    }
+  }, [])
+
+  return isMobileViewport
+}
+
 function EventImage({ moment }) {
   return (
     <figure className={`home-event-gallery__image home-event-gallery__image--${moment.modifier}`}>
@@ -66,6 +94,8 @@ function EventImage({ moment }) {
 
 function HomeEventGallery() {
   const shouldReduceMotion = useReducedMotion()
+  const isMobileViewport = useIsMobileViewport()
+  const shouldShowContentImmediately = shouldReduceMotion || isMobileViewport
   const itemVariant = shouldReduceMotion
     ? { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.2 } } }
     : riseIn
@@ -74,9 +104,10 @@ function HomeEventGallery() {
     <motion.section
       className="home-event-gallery section section-dark"
       aria-labelledby="home-event-gallery-title"
-      initial="hidden"
-      whileInView="visible"
-      viewport={viewport}
+      initial={shouldShowContentImmediately ? 'visible' : 'hidden'}
+      animate={shouldShowContentImmediately ? 'visible' : undefined}
+      whileInView={shouldShowContentImmediately ? undefined : 'visible'}
+      viewport={shouldShowContentImmediately ? undefined : viewport}
     >
       <div className="container">
         <motion.div className="home-event-gallery__header" variants={itemVariant}>

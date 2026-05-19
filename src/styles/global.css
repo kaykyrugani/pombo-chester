@@ -2844,6 +2844,7 @@ ul {
   align-items: center;
   display: grid;
   gap: var(--space-4);
+  justify-items: center;
   max-width: 58rem;
   position: relative;
   z-index: 1;
@@ -2877,6 +2878,7 @@ ul {
   font-weight: 700;
   line-height: 1.55;
   margin: 0;
+  margin-inline: auto;
   max-width: 48rem;
 }
 
@@ -2891,6 +2893,7 @@ ul {
   font-style: normal;
   font-weight: 700;
   margin: 0;
+  margin-inline: auto;
   max-width: 42rem;
 }
 
