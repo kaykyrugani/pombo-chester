@@ -54,7 +54,7 @@ function HomeValueProposition() {
         <motion.div className="section-title" variants={textGroup}>
           <motion.h2 variants={textVariant}>O show que transforma seu evento em uma experiência inesquecível</motion.h2>
           <motion.p className="section-title__subtitle" variants={textVariant}>
-            A Pombo Chester entrega muito mais do que música ao vivo. Criamos experiências completas com energia, humor e repertório brasileiro que envolve o público do começo ao fim.
+            A Pombo Chester entrega muito mais do que música ao vivo. Criamos experiências completas com energia, humor e repertório que envolve o público do começo ao fim.
           </motion.p>
         </motion.div>
       </div>

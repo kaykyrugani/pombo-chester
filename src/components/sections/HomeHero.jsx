@@ -97,11 +97,11 @@ function HomeHero({ canAnimate = true }) {
             ))}
           </h1>
           <motion.p className="home-hero__subtitle" variants={textVariant}>
-            A Pombo Chester é uma banda para eventos com música ao vivo, humor e energia que anima festas, eventos corporativos e casas de show em Minas Gerais e todo o Brasil.
+            A Pombo Chester é uma banda para eventos com música ao vivo, humor e energia que anima festas, eventos corporativos e casas de show em todo o Brasil.
           </motion.p>
           <motion.ul className="home-hero__benefits" variants={heroGroup}>
             <motion.li variants={textVariant}>Shows para eventos corporativos, festas e festivais</motion.li>
-            <motion.li variants={textVariant}>Repertório brasileiro com interação com o público</motion.li>
+            <motion.li variants={textVariant}>Repertório montado e idealizado para festividades de um modo geral.</motion.li>
             <motion.li variants={textVariant}>Estrutura profissional e presença de palco</motion.li>
           </motion.ul>
           <motion.div className="home-hero__actions" variants={heroGroup}>

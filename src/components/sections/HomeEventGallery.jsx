@@ -29,9 +29,9 @@ const moments = [
 ]
 
 const stats = [
-  'Eventos em MG e todo Brasil',
+  'Eventos em todo o Brasil',
   'Festas, festivais e corporativos',
-  'Repertório brasileiro ao vivo',
+  'Repertório montado e idealizado para festividades',
 ]
 
 const viewport = { once: true, amount: 0.32, margin: '0px 0px -10% 0px' }
@@ -122,11 +122,7 @@ function HomeEventGallery() {
 
           <motion.div className="home-event-gallery__content" variants={itemVariant}>
             <p>
-              A Pombo Chester leva música ao vivo para eventos corporativos, banda para festas,
-              festivais e casas de show, criando apresentações com presença de palco, interação
-              com o público e repertório brasileiro. Para quem procura banda ao vivo para eventos
-              ou shows em Minas Gerais, cada apresentação é pensada para transformar o encontro em
-              uma experiência coletiva.
+              O Pombo Chester leva música ao vivo a eventos corporativos, festas, festivais e casas de show. Entrega apresentações com presença de palco, interação com o público e repertório idealizado para festividades de um modo geral. É a escolha certa para quem procura banda performática. Cada apresentação é pensada para transformar o encontro em uma experiência coletiva.
             </p>
             <div className="home-event-gallery__stats" aria-label="Destaques dos eventos da Pombo Chester">
               {stats.map((stat) => (

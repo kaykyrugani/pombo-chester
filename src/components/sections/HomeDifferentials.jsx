@@ -12,7 +12,7 @@ const differentials = [
     id: 2,
     label: 'Repertório',
     title: 'Repertório adaptável',
-    description: 'Repertório brasileiro customizável para diferentes tipos de evento'
+    description: 'Repertório variado: pop rock nacional/internacional, blocos de axé, blocos de funk e até um pouco de sertanejo.'
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const differentials = [
     id: 6,
     label: 'Agenda',
     title: 'Flexibilidade de atendimento',
-    description: 'Atuamos em Monte Santo de Minas e em todo o Brasil'
+    description: 'Atuamos em todo o Brasil'
   }
 ]
 
