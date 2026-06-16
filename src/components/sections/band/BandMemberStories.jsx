@@ -7,24 +7,33 @@ import Baterista from '../../../assets/images/band/Baterista.webp'
 const memberStories = [
   {
     id: 1,
-    role: 'VOCAL / PERFORMANCE',
-    name: 'Integrante 1',
+    role: 'Vocalista',
+    name: 'Zé Neves',
     image: Vocalista,
-    text: 'Texto simbolico do integrante sobre energia, palco e conexao com o publico.',
+    text: `Minha trajetória se inicia na adolescência fazendo apresentações com o violão na escola e em shows de talentos. Logo em seguida cheguei a me apresentar em bares da nossa cidade. Mas a trajetória se inicia mais fortemente no ano de 2020.
+
+Antes de iniciar minha trajetória com a banda Pombo Chester, tive um projeto chamado Auge 21, iniciado em 2020, que fazia releituras de músicas do pop rock nacional e internacional. Com este projeto, participei de algumas lives beneficentes: Live Sarau de Casa e a Live Sunset do Extern Filmes.
+
+Em Julho de 2022, iniciei minhas atividades com a banda Pombo Chester. Projeto que deu certo logo de cara e que conta com o reconhecimento municipal e regional. Com agenda lotada e shows enérgicos e de muita qualidade estamos conquistando nosso espaço e levando arte por todos os lugares que passamos`,
   },
   {
     id: 2,
-    role: 'Baixista',
-    name: 'Dodô Andrade',
+    role: 'Guitarrista',
+    name: 'Anderson',
     image: Guitarrista,
-    text: 'Músico, contrabaixista desde 2017.\n\nEm agosto daquele ano, ingressei meus estudos no Conservatório Musical de Tatuí / Polo São José do Rio Pardo, onde estudei por 4 anos, tocando Contrabaixo Acústico (rabecão) e desenvolvendo aprendizado em teoria musical e prática. Também participei da Orquestra Juvenil, fiz apresentações e formei um trio instrumental na cidade com o mesmo instrumento.\n\nNo mesmo ano, em outubro, iniciei os estudos na escola musical IMAS com o grande baixista e referência Simão, dando início à minha caminhada no Contrabaixo Elétrico.\n\nCom o passar dos anos, atuei em bandas, grupos e trios, tocando estilos variados como samba, MPB, bossa nova, pop, pop rock, rock, axé, hip hop, forró, xote, baião, reggae e samba rock. Essa trajetória trouxe vasta experiência de palco, performance, click e VS.\n\nAtualmente acompanho a banda Pombo Chester, com mais de 200 shows em 3 anos, perpetuando sua essência por onde passa.\n\nFora dos palcos, ministro aulas de Contrabaixo no projeto Cultura em Movimento, além de aulas particulares de violão e teclado.',
+    text: `Comecei meus estudos na música aos 14 anos, tendo aulas de violão com o professor Simão de Paula (IMAS). Após esse período, foquei em aulas de guitarra com o professor Rodrigo Gavério (São sebastião do Paraíso). Comecei na area musical com shows em 2013, com bandas de Heavy metal - death or glory, Virgin Bitches e Hemorrogical.
+
+Após um período de 4 anos fazendo apresentações com as bandas mencionadas, ingressei na banda Cadillac's Rock Band (Mococa-SP) em 2017, onde tocávamos na região, período no qual como profissional evoluí bastante, podendo ter experiencias em palcos maiores e com publicos maiores, cheguei a fazer abertura do show do Skank.
+Neste mesmo período (2017) comecei a dar aulas de guitarra e violão.
+
+Nos últimos anos tenho trabalhado com o Pombo Chester em várias cidades e eventos por todo o Brasil.`,
   },
   {
     id: 3,
-    role: 'BAIXO',
-    name: 'Integrante 3',
+    role: 'Baixista',
+    name: 'Dodô Andrade',
     image: Baixista,
-    text: 'Texto simbolico sobre ritmo, interacao e estrada.',
+    text: 'Músico, contrabaixista desde 2017.\n\nEm agosto daquele ano, ingressei meus estudos no Conservatório Musical de Tatuí / Polo São José do Rio Pardo, onde estudei por 4 anos, tocando Contrabaixo Acústico (rabecão) e desenvolvendo aprendizado em teoria musical e prática. Também participei da Orquestra Juvenil, fiz apresentações e formei um trio instrumental na cidade com o mesmo instrumento.\n\nNo mesmo ano, em outubro, iniciei os estudos na escola musical IMAS com o grande baixista e referência Simão, dando início à minha caminhada no Contrabaixo Elétrico.\n\nCom o passar dos anos, atuei em bandas, grupos e trios, tocando estilos variados como samba, MPB, bossa nova, pop, pop rock, rock, axé, hip hop, forró, xote, baião, reggae e samba rock. Essa trajetória trouxe vasta experiência de palco, performance, click e VS.\n\nAtualmente acompanho a banda Pombo Chester, com mais de 200 shows em 3 anos, perpetuando sua essência por onde passa.\n\nFora dos palcos, ministro aulas de Contrabaixo no projeto Cultura em Movimento, além de aulas particulares de violão e teclado.',
   },
   {
     id: 4,
